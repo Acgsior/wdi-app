@@ -15,5 +15,18 @@ App({
     }
 
     this.globalData = {}
+
+    // https://0424-1256827581.cos.ap-chengdu.myqcloud.com/FZYouSJW-508R.woff2
+    wx.loadFontFace({
+      family: 'fzyou',
+      source: 'url("https://0424-1256827581.cos.ap-chengdu.myqcloud.com/FZYouSJW-508R.woff2")',
+      global: true,
+      success: () => {
+        console.log('=== load font success.');
+      },
+      fail: () => {
+        console.log('=== load font fail.')
+      }
+    });
   }
 })

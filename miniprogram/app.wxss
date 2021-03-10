@@ -1,1 +1,9 @@
-@import "./fonts/signature.wxss"
+@import "./fonts/signature.wxss";
+
+
+page {
+  --main-gold-color: #D1B177;
+  --main-blue-color: #3779A9;
+
+  font-family: 'fzyou';
+}

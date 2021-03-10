@@ -1,9 +1,7 @@
 <!--index.wxml-->
 <swiper class="page-swiper" vertical="{{true}}">
   <swiper-item>
-    <view class="page page-1">
-      Page #1
-    </view>
+    <include src="page1.wxml"/>
   </swiper-item>
   <swiper-item>
     <view class="page page-2">

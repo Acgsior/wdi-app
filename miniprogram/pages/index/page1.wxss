@@ -1,0 +1,130 @@
+.page-1 {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.page-1 .top {
+  margin: 32rpx 0 64rpx;
+}
+
+.page-1 .top .top-content {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: var(--main-gold-color);
+  text-align: center;
+}
+
+.page-1 .main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.page-1 .main-bg-img {
+  z-index: 1;
+}
+
+.page-1 .main-bg-img image {
+  width: 676rpx;
+  height: 863rpx;
+}
+
+.page-1 .main-bg--rect {
+  margin: 0 auto;
+  transform: rotate(45deg);
+}
+
+.page-1 .border-rect--outside {
+  border: 2rpx solid var(--main-gold-color);
+  border-radius: 12rpx;
+  padding: 8rpx;
+}
+
+.page-1 .border-rect--inside {
+  width: 220rpx;
+  height: 220rpx;
+  border: 6rpx solid var(--main-gold-color);
+  border-radius: 12rpx;
+}
+
+.page-1 .main-bg-img {
+  position: absolute;
+}
+
+.page-1 .protagonist {
+  width: 100%;
+  background: #fff;
+  z-index: 11;
+  padding: 24px 0 12px;
+}
+
+.page-1 .protagonist-container {
+  margin: 0 28px;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid var(--main-gold-color);
+  border-bottom: 2px solid var(--main-gold-color);
+}
+
+.page-1 .protagonist-name--cn {
+  font-size: 32px;
+  color: var(--main-blue-color);
+  letter-spacing: 2px;
+}
+
+.page-1 .protagonist-split {
+  margin: 0 14px;
+  color: var(--main-gold-color);
+}
+
+.page-1 .protagonist-name--en {
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 20px;
+  color: var(--main-gold-color);
+}
+
+.page-1 .bottom {
+  margin-top: 20px;
+}
+
+.page-1 .border-square {
+  border: 2px solid var(--main-gold-color);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.page-1 .border-square--outside {
+  padding: 3px;
+}
+
+.page-1 .border-square--inside {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 3px solid var(--main-gold-color);
+}
+
+.page-1 .split-line {
+  display: flex;
+  margin-top: 4px;
+  height: 22px;
+}
+
+.page-1 .split-line--left,
+.page-1 .split-line--right {
+  width: 50%;
+}
+
+.page-1 .split-line--left {
+  border-right: 1px solid var(--main-gold-color);
+}
+
+.page-1 .split-line--right {
+  border-left: 1px solid var(--main-gold-color);
+}
