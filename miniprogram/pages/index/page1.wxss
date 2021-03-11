@@ -88,39 +88,3 @@
 .page-1 .bottom {
   margin-top: 20px;
 }
-
-.page-1 .border-square {
-  border: 2px solid var(--main-gold-color);
-  transform: rotate(45deg);
-  border-radius: 2px;
-}
-
-.page-1 .border-square--outside {
-  padding: 3px;
-}
-
-.page-1 .border-square--inside {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  border: 3px solid var(--main-gold-color);
-}
-
-.page-1 .split-line {
-  display: flex;
-  margin-top: 4px;
-  height: 22px;
-}
-
-.page-1 .split-line--left,
-.page-1 .split-line--right {
-  width: 50%;
-}
-
-.page-1 .split-line--left {
-  border-right: 1px solid var(--main-gold-color);
-}
-
-.page-1 .split-line--right {
-  border-left: 1px solid var(--main-gold-color);
-}

@@ -40,10 +40,6 @@
     </view>
   </view>
   <view class="bottom">
-    <square />
-    <view class="split-line">
-      <view class="split-line--left"></view>
-      <view class="split-line--right"></view>
-    </view>
+    <bottomsquare />
   </view>
 </view>

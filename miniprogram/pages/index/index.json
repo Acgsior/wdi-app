@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "square": "/components/square/square"
+    "bottomsquare": "/components/bottomsquare/bottomsquare"
   }
 }
