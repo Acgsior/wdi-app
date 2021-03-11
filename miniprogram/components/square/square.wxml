@@ -1,4 +1,4 @@
 <!--components/square/square.wxml-->
-<view class="square">
+<view class="square {{className}}">
   <view class="square--inner"></view>
 </view>

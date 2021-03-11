@@ -77,6 +77,19 @@
   color: var(--main-gold-color);
 }
 
+.page-1 .protagonist-square {
+  border-width: 2rpx;
+  border-radius: 2rpx;
+}
+
+.page-1 .protagonist-square .square--inner {
+  width: 6rpx;
+  height: 6rpx;
+  border-width: 4rpx;
+  border-radius: 2rpx;
+  background-color: var(--main-gold-color)
+}
+
 .page-1 .protagonist-name--en {
   text-align: center;
   font-weight: 500;

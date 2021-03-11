@@ -18,19 +18,18 @@
       <view class="protagonist-container">
         <view class="bridegroom">
           <view class="protagonist-name--cn">
-            张三
+            覃一斐
           </view>
           <view class="protagonist-name--en signature">
             Qinyifei
           </view>
         </view>
-        <!-- FIXME: change to outlined square as split rect -->
         <view class="protagonist-split">
-          ❤
+          <square className="protagonist-square" />
         </view>
         <view class="bride">
           <view class="protagonist-name--cn">
-            李四
+            张颖 
           </view>
           <view class="protagonist-name--en signature">
             Zhangying
