@@ -4,7 +4,7 @@
 }
 
 .page-1 .top {
-  margin: 32rpx 0 64rpx;
+  margin: 52rpx 0;
 }
 
 .page-1 .top .top-content {
@@ -32,28 +32,24 @@
 }
 
 .page-1 .main-bg--rect {
+  position: absolute;
   margin: 0 auto;
   transform: rotate(45deg);
-}
-
-.page-1 .border-rect--outside {
   border: 2rpx solid var(--main-gold-color);
   border-radius: 12rpx;
   padding: 8rpx;
 }
 
-.page-1 .border-rect--inside {
+.page-1 .main-bg--rect-inside {
   width: 220rpx;
   height: 220rpx;
   border: 6rpx solid var(--main-gold-color);
   border-radius: 12rpx;
 }
 
-.page-1 .main-bg-img {
-  position: absolute;
-}
-
 .page-1 .protagonist {
+  position: absolute;
+  bottom: 36%;
   width: 100%;
   background: #fff;
   z-index: 11;
