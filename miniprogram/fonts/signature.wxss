@@ -7,3 +7,6 @@
     font-display: swap;
 }
 
+.signature {
+    font-family: 'signature';
+}
