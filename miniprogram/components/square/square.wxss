@@ -1,0 +1,14 @@
+/* components/square/square.wxss */
+.square {
+  border: 4rpx solid var(--main-gold-color);
+  transform: rotate(45deg);
+  border-radius: 4rpx;
+  padding: 6rpx;
+}
+
+.square--inner {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 4rpx;
+  border: 6rpx solid var(--main-gold-color);
+}

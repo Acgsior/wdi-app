@@ -40,9 +40,7 @@
     </view>
   </view>
   <view class="bottom">
-    <view class="border-square border-square--outside">
-      <view class="border-square--inside"></view>
-    </view>
+    <square />
     <view class="split-line">
       <view class="split-line--left"></view>
       <view class="split-line--right"></view>
