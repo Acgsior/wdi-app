@@ -22,6 +22,6 @@ Component({
   },
 
   options: {
-    styleIsolation: 'apply-shared'
+    styleIsolation: 'shared'
   }
 })

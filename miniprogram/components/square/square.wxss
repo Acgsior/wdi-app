@@ -7,8 +7,8 @@
 }
 
 .square--inner {
-  width: 20rpx;
-  height: 20rpx;
+  width: 14rpx;
+  height: 14rpx;
   border-radius: 4rpx;
   border: 6rpx solid var(--main-gold-color);
 }

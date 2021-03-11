@@ -1,12 +1,10 @@
 <!--index.wxml-->
 <swiper class="page-swiper" vertical="{{true}}">
   <swiper-item>
-    <include src="page1.wxml"/>
+    <include src="page1.wxml" />
   </swiper-item>
   <swiper-item>
-    <view class="page page-2">
-      Page #2
-      </view>
+    <include src="page2.wxml" />
   </swiper-item>
   <swiper-item>
     <view class="page page-3">

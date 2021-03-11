@@ -1,0 +1,97 @@
+.page-2 .main {
+  margin: 140rpx 64rpx 20rpx;
+  height: 100%;
+  flex: 1;
+}
+
+.page-2 .container--outside {
+  border: 4rpx solid var(--main-gold-color);
+  border-radius: 8rpx;
+  padding: 8rpx;
+}
+
+.page-2 .container--inside {
+  padding: 156rpx 20px 10px;
+  border: 6rpx solid var(--main-gold-color);
+  border-radius: 8rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.page-2 .invite-you {
+  font-size: 36rpx;
+}
+
+.page-2 .protagonist {
+  margin: 48rpx auto 220rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.page-2 .bridegroom,
+.page-2 .bride {
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.page-2 .protagonist-name {
+  font-size: 44rpx;
+  color: var(--main-blue-color);
+}
+
+.page-2 .protagonist-role {
+  font-size: 28rpx;
+  padding-left: 4rpx;
+  padding-bottom: 2rpx;
+}
+
+.page-2 .protagonist-split {
+  margin: 0 20rpx;
+  display: flex;
+  align-items: center;
+  color: var(--main-gold-color);
+}
+
+.page-2 .info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.page-2 .info-item .subject {
+  color: var(--main-gold-color);
+  font-style: italic;
+  font-size: 60rpx;
+}
+
+.page-2 .info-item .content,
+.page-2 .info-item .description {
+  font-size: 32rpx;
+  line-height: 40rpx;
+}
+
+.page-2 .wedding {
+  color: var(--main-gold-color);
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.page-2 .wedding--cn,
+.page-2 .wedding--en {
+  font-size: 36rpx;
+  padding: 8rpx 0;
+}
+
+.page-2 .wedding--en {
+  border-bottom: 2rpx solid var(--main-gold-color);
+}
+
+.page-2 .bottom {
+  margin-top: 20px;
+}

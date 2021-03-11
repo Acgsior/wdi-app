@@ -1,0 +1,65 @@
+<view class="page page-2">
+  <view class="main">
+    <view class="container--outside">
+      <view class="container--inside">
+        <view class="invite-you">
+          诚邀您及家人莅临
+        </view>
+        <view class="protagonist">
+          <view class="bridegroom">
+            <view class="protagonist-name">
+              覃一斐
+            </view>
+            <view class="protagonist-role">
+              新郎
+            </view>
+          </view>
+          <view class="protagonist-split">
+            ❤
+          </view>
+          <view class="bride">
+            <view class="protagonist-name">
+              张 颖
+            </view>
+            <view class="protagonist-role">
+              新娘
+            </view>
+          </view>
+        </view>
+        <view class="info-item time">
+          <view class="subject signature">
+            Time
+          </view>
+          <view class="content">
+            2021.04.24 / 辛丑年三月十三
+          </view>
+          <view class="description">
+            星期六
+          </view>
+        </view>
+        <view class="info-item address">
+          <view class="subject signature">
+            Address
+          </view>
+          <view class="content">
+            云豪假期酒店三楼宴会厅
+          </view>
+          <view class="description">
+            温江区江宁南路266号(近国色天香)
+          </view>
+        </view>
+        <view class="wedding">
+          <view class="wedding--en">
+            WEDDING INVITATION
+          </view>
+          <view class="wedding--cn">
+            新婚典礼
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <bottomsquare />
+  </view>
+</view>

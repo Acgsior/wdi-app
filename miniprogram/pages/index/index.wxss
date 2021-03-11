@@ -6,12 +6,9 @@
 .page {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.page-2 {
-  background-color: cornflowerblue;
+  justify-content: space-between;
 }
 
 .page-3 {
@@ -23,3 +20,4 @@
 }
 
 @import './page1.wxss';
+@import './page2.wxss';

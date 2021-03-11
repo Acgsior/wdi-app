@@ -1,4 +1,8 @@
 /* components/bottomsquare/bottomsquare.wxss */
+.bottom-square .bold-square .square--inner {
+  border-width: 8rpx;
+}
+
 .bottom-square .separator {
   display: flex;
   margin-top: 8rpx;

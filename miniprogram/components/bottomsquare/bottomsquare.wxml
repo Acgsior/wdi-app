@@ -1,6 +1,6 @@
 <!--components/bottomsquare/bottomsquare.wxml-->
 <view class="bottom-square">
-  <square />
+  <square className="bold-square" />
   <view class="separator">
     <view class="separator--left"></view>
     <view class="separator--right"></view>

@@ -1,8 +1,3 @@
-.page-1 {
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .page-1 .top {
   margin: 52rpx 0;
 }
@@ -99,5 +94,5 @@
 }
 
 .page-1 .bottom {
-  margin-top: 20px;
+  margin-top: 40rpx;
 }
