@@ -59,7 +59,11 @@
   margin: 0 20rpx;
   display: flex;
   align-items: center;
-  color: var(--main-gold-color);
+}
+
+.page-2 .protagonist-split image {
+  width: 32rpx;
+  height: 28rpx;
 }
 
 .page-2 .info-item {

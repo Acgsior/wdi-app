@@ -15,7 +15,7 @@
             </view>
           </view>
           <view class="protagonist-split">
-            ❤
+            <image src="../../images/love.png" />
           </view>
           <view class="bride">
             <view class="protagonist-name">
