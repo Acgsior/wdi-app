@@ -6,14 +6,4 @@
   <swiper-item>
     <include src="page2.wxml" />
   </swiper-item>
-  <swiper-item>
-    <view class="page page-3">
-      Page #3
-    </view>
-  </swiper-item>
-  <swiper-item>
-    <view class="page page-4">
-      Page #4
-    </view>
-  </swiper-item>
 </swiper>

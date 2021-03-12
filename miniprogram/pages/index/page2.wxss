@@ -24,6 +24,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+}
+
+.page-2 .logo-container {
+  position: absolute;
+  top: -120rpx;
+  background-color: #ffffff;
+}
+
+.page-2 .logo {
+  width: 208rpx;
+  height: 208rpx;
 }
 
 .page-2 .invite-you {

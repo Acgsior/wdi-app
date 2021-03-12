@@ -2,6 +2,9 @@
   <view class="main">
     <view class="container--outside">
       <view class="container--inside">
+        <view class="logo-container">
+          <image class="logo" src="../../images/logo.png" />
+        </view>
         <view class="invite-you">
           诚邀您及家人莅临
         </view>
