@@ -31,7 +31,7 @@
 }
 
 .page-2 .protagonist {
-  margin: 48rpx auto 120rpx;
+  margin: 48rpx auto;
   display: flex;
   justify-content: center;
 }

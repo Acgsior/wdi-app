@@ -14,6 +14,7 @@ App({
       })
     }
 
+    const that = this;
     this.globalData = {}
 
     // https://0424-1256827581.cos.ap-chengdu.myqcloud.com/FZYouSJW-508R.woff2
@@ -28,5 +29,21 @@ App({
         console.log('=== load font fail.')
       }
     });
+
+    wx.getSystemInfo({
+      success: (res) => {
+        console.log('=== window height', res.windowHeight);
+        const windowHeight = res.windowHeight;
+        if (windowHeight > 603) {
+          that.globalData.extraHeight = windowHeight - 603;
+        } else {
+          that.globalData.extraHeight = 0;
+        }
+      }
+    });
+  },
+
+  globalData: {
+    extraHeight: 0
   }
 })
