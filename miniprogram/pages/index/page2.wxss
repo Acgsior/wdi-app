@@ -1,5 +1,10 @@
+.page-2 {
+  padding: 0 48rpx;
+}
+
 .page-2 .main {
-  margin: 140rpx 64rpx 20rpx;
+  margin: 120rpx 0 16rpx;
+  width: 100%;
   height: 100%;
   flex: 1;
 }
@@ -11,7 +16,7 @@
 }
 
 .page-2 .container--inside {
-  padding: 156rpx 20px 10px;
+  padding: 136rpx 40rpx 20rpx;
   border: 6rpx solid var(--main-gold-color);
   border-radius: 8rpx;
   height: 100%;
@@ -26,7 +31,7 @@
 }
 
 .page-2 .protagonist {
-  margin: 48rpx auto 220rpx;
+  margin: 48rpx auto 120rpx;
   display: flex;
   justify-content: center;
 }
@@ -61,30 +66,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40rpx;
+  margin-bottom: 20rpx;
 }
 
 .page-2 .info-item .subject {
   color: var(--main-gold-color);
   font-style: italic;
-  font-size: 60rpx;
+  font-size: 48rpx;
 }
 
 .page-2 .info-item .content,
 .page-2 .info-item .description {
-  font-size: 32rpx;
-  line-height: 40rpx;
+  font-size: 28rpx;
+  line-height: 36rpx;
 }
 
 .page-2 .wedding {
   color: var(--main-gold-color);
   text-align: center;
-  margin-top: 60rpx;
+  margin-top: 32rpx;
 }
 
 .page-2 .wedding--cn,
 .page-2 .wedding--en {
-  font-size: 36rpx;
+  font-size: 32rpx;
   padding: 8rpx 0;
 }
 
