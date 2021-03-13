@@ -48,27 +48,27 @@
   width: 100%;
   background: #fff;
   z-index: 11;
-  padding: 24px 0 12px;
+  padding: 48rpx 0 24rpx;
 }
 
 .page-1 .protagonist-container {
-  margin: 0 28px;
-  padding: 20px 0;
+  margin: 0 56rpx;
+  padding: 40rpx 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 2px solid var(--main-gold-color);
-  border-bottom: 2px solid var(--main-gold-color);
+  border-top: 4rpx solid var(--main-gold-color);
+  border-bottom: 4rpx solid var(--main-gold-color);
 }
 
 .page-1 .protagonist-name--cn {
-  font-size: 32px;
+  font-size: 64rpx;
   color: var(--main-blue-color);
-  letter-spacing: 2px;
+  letter-spacing: 4rpx;
 }
 
 .page-1 .protagonist-split {
-  margin: 0 14px;
+  margin: 0 28rpx;
   color: var(--main-gold-color);
 }
 
@@ -88,8 +88,8 @@
 .page-1 .protagonist-name--en {
   text-align: center;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 20px;
+  font-size: 48rpx;
+  line-height: 40rpx;
   color: var(--main-gold-color);
 }
 
