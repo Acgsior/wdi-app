@@ -46,12 +46,22 @@
   position: absolute;
   bottom: 36%;
   width: 100%;
-  background: #fff;
   z-index: 11;
-  padding: 48rpx 0 24rpx;
+}
+
+.page-1 .protagonist-top {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAUCAMAAAA5k9QEAAAAVFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////8wXzyWAAAAG3RSTlMAvfny7OMMB6vSp5+dlI2HdmxZSjUvIx0TAqzsDJrcAAAAhklEQVQoz43ORw7DMAxEUVLNcu8tc/97piFwXGTxrx8GQ7tcX7HV0Jar3lGoMdfY0vl4qSaPY4/pzFqNc6o9qCTDdVmy+88Ixe5vjRGOt8UCdxU/1uG+7ssWE3Fm+bgSsco3m1XUqfnlasSriVYrcHalAZIGakSuIS9ynlKRS8mInCElcuoJSgE/QOCR1+8AAAAASUVORK5CYII=');
+  background-repeat: repeat-x;
+  background-size: auto 24rpx;
+  padding-bottom: 24rpx;
 }
 
 .page-1 .protagonist-container {
+  padding: 24rpx 0;
+  background: #fff;
+}
+
+.page-1 .protagonist-content {
   margin: 0 56rpx;
   padding: 40rpx 0;
   display: flex;

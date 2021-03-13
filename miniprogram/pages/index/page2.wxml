@@ -18,7 +18,8 @@
             </view>
           </view>
           <view class="protagonist-split">
-            <image src="../../images/love.png" />
+            <image
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAMAAABo+94fAAAAP1BMVEUAAADRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXe/L9lSAAAAFHRSTlMATet5WKU3KN3czcWunJaGEqg8L8z42FYAAABuSURBVBjTbc9JDoMwDEDRb2dihra5/1kbkSAQ8VtZX17YFGkddXIUbtJxTZx8Ps0w18lTxNyEkJsvoLmjINkg7Fbe2ay84azs+Fk5wdLXBTj6fIBxotzfP3ga6XarOFxxiDx9ag28uPpGR1SFyx+UbRRjtQ2MRQAAAABJRU5ErkJggg==" />
           </view>
           <view class="bride">
             <view class="protagonist-name">
