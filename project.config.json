@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -39,7 +39,7 @@
   },
   "appid": "wx0cae39bac96ddfc2",
   "projectname": "wdi-app",
-  "libVersion": "2.16.0",
+  "libVersion": "2.12.3",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {

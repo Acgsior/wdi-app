@@ -1,77 +1,37 @@
 //index.js
-const app = getApp()
+const app = getApp();
+
+const bgm = wx.createInnerAudioContext();
 
 Page({
   data: {
-    avatarUrl: './user-unlogin.png',
-    userInfo: {},
-    hasUserInfo: false,
-    logged: false,
-    takeSession: false,
-    requestResult: '',
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl'), // 如需尝试获取用户信息可改为false
+    extraHeight: app.globalData.extraHeight,
 
-    extraHeight: app.globalData.extraHeight
+    isBgmPlaying: false,
+    // bgmURL: 'https://gzc-download.weiyun.com/ftn_handler/ad7e9d0dde7c8238b8998a9411be75a33afe86f8a30c3cef2a385760517ef5248d96a3e109021183fc59cb4794538d7b2d47b9906b73573febbfd10d798be120/will-you-marry-me-marlboro..mp3?fname=will-you-marry-me-marlboro..mp3&from=30013&version=3.3.3.3'
+    bgmURL: 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps..mp3'
   },
 
-  onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true,
-      })
+  onShow: function () {
+    const that = this;
+
+    bgm.autoplay = true;
+    bgm.loop = true;
+    bgm.src = that.data.bgmURL;
+
+    if (!that.data.isBgmPlaying) {
+      that.setData({
+        isBgmPlaying: true
+      });
+      bgm.play();
     }
   },
 
-  getUserProfile() {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        this.setData({
-          avatarUrl: res.userInfo.avatarUrl,
-          userInfo: res.userInfo,
-          hasUserInfo: true,
-        })
-      }
-    })
-  },
-
-  onGetUserInfo: function(e) {
-    if (!this.data.logged && e.detail.userInfo) {
-      this.setData({
-        logged: true,
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true,
-      })
+  onShareAppMessage: function (res) {
+    return {
+      title: '04.24的婚礼电子请柬',
+      path: '/page/index/index',
+      imageUrl: 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/share-cover.png'
     }
-  },
-
-  onGetOpenid: function() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
-        })
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
-      }
-    })
   }
 })
