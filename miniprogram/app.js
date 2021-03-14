@@ -1,22 +1,47 @@
 //app.js
 App({
   onLaunch: function () {
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    const that = this;
+
+    this.globalData = {}
+
+    // check new version
+    if (wx.canIUse('getUpdateManager')) {
+      const updateManager = wx.getUpdateManager()
+      updateManager.onCheckForUpdate(function (res) {
+        if (res.hasUpdate) {
+          // update resource ready
+          updateManager.onUpdateReady(function () {
+            wx.showModal({
+              title: '更新提示',
+              content: '新版本已经准备好了, 是否重启应用?',
+              success: function (res) {
+                if (res.confirm) {
+                  updateManager.applyUpdate()
+                }
+              }
+            })
+          })
+          wx.getUpdateManager().onUpdateFailed(function () {
+            // update failed
+            wx.showModal({
+              title: '更新失败提示',
+              content: '下载新版本失败, 请检查网络设置',
+              showCancel: false
+            })
+          })
+        }
+      })
     } else {
-      wx.cloud.init({
-        // env 参数说明：
-        //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
-        //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
-        //   如不填则使用默认环境（第一个创建的环境）
-        // env: 'my-env-id',
-        traceUser: true,
+      // if wechat app version is too old
+      wx.showModal({
+        title: '微信版本过低提示',
+        confirmColor: '#D1B177',
+        content: '当前微信版本过低, 暂时无法使用全部功能. 请升级到最新微信版本后重试.'
       })
     }
 
-    const that = this;
-    this.globalData = {}
-
+    // load fzyou font asset
     // https://0424-1256827581.cos.ap-chengdu.myqcloud.com/FZYouSJW-508R.woff2
     wx.loadFontFace({
       family: 'fzyou',
@@ -30,6 +55,7 @@ App({
       }
     });
 
+    // get windows height to calc visual content height distance for iphone 6
     wx.getSystemInfo({
       success: (res) => {
         console.log('=== window height', res.windowHeight);
