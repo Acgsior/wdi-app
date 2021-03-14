@@ -1,33 +1,55 @@
 //index.js
 const app = getApp();
 
-const bgm = wx.createInnerAudioContext();
+// FIXME need check why fileid do not work
+// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
+const audioURL = 'https://7764-wdi-9g06h4rvb0ad273b-1256827581.tcb.qcloud.la/will-you-marry-me-marlboro-32kbps.mp3?sign=a9f499c60953584d41af8e43befcf7af&t=1615743181';
 
 Page({
   data: {
     extraHeight: app.globalData.extraHeight,
 
     isBgmPlaying: false,
-    // bgmURL: 'https://gzc-download.weiyun.com/ftn_handler/ad7e9d0dde7c8238b8998a9411be75a33afe86f8a30c3cef2a385760517ef5248d96a3e109021183fc59cb4794538d7b2d47b9906b73573febbfd10d798be120/will-you-marry-me-marlboro..mp3?fname=will-you-marry-me-marlboro..mp3&from=30013&version=3.3.3.3'
-    bgmURL: 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps..mp3'
+
+    audioContext: null
   },
 
-  onShow: function () {
-    const that = this;
+  onReady: function () {
+    let audioContext = wx.createInnerAudioContext();
+    audioContext.loop = true;
+    audioContext.src = audioURL;
 
-    bgm.autoplay = true;
-    bgm.loop = true;
-    bgm.src = that.data.bgmURL;
+    this.setData({
+      audioContext
+    });
 
-    if (!that.data.isBgmPlaying) {
-      that.setData({
-        isBgmPlaying: true
-      });
-      bgm.play();
-    }
+    audioContext.onPlay(() => {
+      console.log('=== audio onPlay');
+    });
+
+    audioContext.onWaiting(() => {
+      console.log('=== audio onWaiting');
+    });
+
+    audioContext.onError((res) => {
+      console.log('=== audio onerroonErrorr');
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    });
+
+    console.log('=== audio try to play', audioContext.duration);
+    audioContext.onCanplay(() => {
+      console.log('=== audio onCanplay');
+      audioContext.play();
+    });
+  },
+
+  onUnload: function () {
+    this.data.audioContext.destroy();
   },
 
   onShareAppMessage: function (res) {
+    // FIXME need update title and img as current title text is too long which would be omitted
     return {
       title: '04.24的婚礼电子请柬',
       path: '/page/index/index',

@@ -1,5 +1,5 @@
 .page-1 .top {
-  margin: 52rpx 0 -52rpx;
+  margin: 52rpx 0;
 }
 
 .page-1 .top .top-content {
