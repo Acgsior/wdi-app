@@ -104,5 +104,5 @@
 }
 
 .page-1 .bottom {
-  margin-top: 40rpx;
+  margin-top: 24rpx;
 }

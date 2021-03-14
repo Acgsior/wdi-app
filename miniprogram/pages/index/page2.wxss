@@ -114,5 +114,5 @@
 }
 
 .page-2 .bottom {
-  margin-top: 20px;
+  margin-top: 24rpx;
 }
