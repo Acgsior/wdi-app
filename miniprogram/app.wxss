@@ -1,4 +1,5 @@
 @import "./fonts/signature.wxss";
+@import "./fonts/futura.wxss";
 
 
 page {

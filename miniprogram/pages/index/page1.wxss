@@ -4,6 +4,7 @@
 
 .page-1 .top .top-content {
   font-size: 42rpx;
+  font-family: 'futura';
   font-weight: 600;
   color: var(--main-gold-color);
   text-align: center;
