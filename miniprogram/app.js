@@ -48,17 +48,17 @@ App({
       source: 'url("https://0424-1256827581.cos.ap-chengdu.myqcloud.com/FZYouSJW-508R.woff2")',
       global: true,
       success: () => {
-        console.log('=== load font success.');
+        console.log('= [font] load font success.');
       },
       fail: () => {
-        console.log('=== load font fail.')
+        console.log('= [font] load font fail.')
       }
     });
 
     // get windows height to calc visual content height distance for iphone 6
     wx.getSystemInfo({
       success: (res) => {
-        console.log('=== window height', res.windowHeight);
+        console.log('= [window] window height', res.windowHeight);
         const windowHeight = res.windowHeight;
         if (windowHeight > 603) {
           that.globalData.extraHeight = windowHeight - 603;

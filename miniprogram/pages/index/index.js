@@ -7,15 +7,25 @@ const audioURL = 'https://7764-wdi-9g06h4rvb0ad273b-1256827581.tcb.qcloud.la/wil
 
 Page({
   data: {
+    // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
 
-    isBgmPlaying: false,
-
-    audioContext: null
+    audioContext: null,
+    isPlaying: false
   },
 
   onReady: function () {
-    let audioContext = wx.createInnerAudioContext();
+    wx.setInnerAudioOption({
+      obeyMuteSwitch: false,
+      success: function() {
+        console.log('= [audio] audio set obey mute switch');
+      },
+      fail: function(e) {
+        console.log('= [audio] audio set obey mute switch failed', e);
+      }
+    });
+
+    const audioContext = wx.createInnerAudioContext();
     audioContext.loop = true;
     audioContext.src = audioURL;
 
@@ -24,22 +34,22 @@ Page({
     });
 
     audioContext.onPlay(() => {
-      console.log('=== audio onPlay');
+      console.log('= [audio] audio onPlay');
     });
 
     audioContext.onWaiting(() => {
-      console.log('=== audio onWaiting');
+      console.log('= [audio] audio onWaiting');
     });
 
     audioContext.onError((res) => {
-      console.log('=== audio onerroonErrorr');
+      console.log('= [audio] audio onerroonErrorr');
       console.log(res.errMsg)
       console.log(res.errCode)
     });
 
-    console.log('=== audio try to play', audioContext.duration);
+    console.log('= [audio] audio try to play', audioContext.duration);
     audioContext.onCanplay(() => {
-      console.log('=== audio onCanplay');
+      console.log('= [audio] audio onCanplay');
       audioContext.play();
     });
   },

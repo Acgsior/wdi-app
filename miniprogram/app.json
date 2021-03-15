@@ -3,11 +3,11 @@
     "pages/index/index"
   ],
   "window": {
-    "backgroundColor": "#D1B177",
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#D1B177",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "04.24的婚礼电子请柬",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
