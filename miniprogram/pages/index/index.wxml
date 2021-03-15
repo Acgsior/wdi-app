@@ -6,4 +6,7 @@
   <swiper-item>
     <include src="page2.wxml" />
   </swiper-item>
+  <swiper-item>
+    <include src="asset.wxml" />
+  </swiper-item>
 </swiper>

@@ -13,3 +13,5 @@
 
 @import './page1.wxss';
 @import './page2.wxss';
+
+@import './asset.wxss';
