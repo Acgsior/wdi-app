@@ -48,14 +48,29 @@ Page({
     });
 
     console.log('= [audio] audio try to play', audioContext.duration);
+    const that = this;
     audioContext.onCanplay(() => {
       console.log('= [audio] audio onCanplay');
       audioContext.play();
+
+      that.setData({ isPlaying: true });
     });
   },
 
   onUnload: function () {
     this.data.audioContext.destroy();
+  },
+
+  play: function() {
+    this.data.audioContext.play();
+
+    this.setData({ isPlaying: true });
+  },
+
+  stop: function() {
+    this.data.audioContext.pause();
+
+    this.setData({ isPlaying: false });
   },
 
   onShareAppMessage: function (res) {

@@ -11,6 +11,18 @@
   justify-content: space-between;
 }
 
+.bgm-icon {
+  position: fixed;
+  top: 64rpx;
+  right: 48rpx;
+}
+
+.bgm-icon image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+
 @import './page1.wxss';
 @import './page2.wxss';
 
