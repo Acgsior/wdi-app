@@ -41,8 +41,12 @@ Page({
       console.log('= [audio] audio onWaiting');
     });
 
+    audioContext.onPause(() => {
+      console.log('= [audio] audio onPause');
+    });
+
     audioContext.onError((res) => {
-      console.log('= [audio] audio onerroonErrorr');
+      console.log('= [audio] audio onErrorr');
       console.log(res.errMsg)
       console.log(res.errCode)
     });
@@ -51,9 +55,9 @@ Page({
     const that = this;
     audioContext.onCanplay(() => {
       console.log('= [audio] audio onCanplay');
-      audioContext.play();
+      // audioContext.play();
 
-      that.setData({ isPlaying: true });
+      // that.setData({ isPlaying: true });
     });
   },
 
@@ -67,7 +71,7 @@ Page({
     this.setData({ isPlaying: true });
   },
 
-  stop: function() {
+  pause: function() {
     this.data.audioContext.pause();
 
     this.setData({ isPlaying: false });

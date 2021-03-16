@@ -1,0 +1,10 @@
+.bgm--fixed {
+  position: fixed;
+  top: 64rpx;
+  right: 48rpx;
+}
+
+.bgm--fixed image {
+  width: 64rpx;
+  height: 64rpx;
+}
