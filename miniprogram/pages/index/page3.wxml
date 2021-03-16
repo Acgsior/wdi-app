@@ -1,0 +1,10 @@
+<view class="page-section page-section-gap">
+    <map
+      id="hotelMap"
+      style="width: 100%; height: 600rpx;"
+      latitude="{{map.latitude}}"
+      longitude="{{map.longitude}}"
+      markers="{{map.markers}}"
+      show-location
+    ></map>
+  </view>

@@ -6,6 +6,9 @@
   <swiper-item>
     <include src="page2.wxml" />
   </swiper-item>
+  <swiper-item>
+    <include src="page3.wxml" />
+  </swiper-item>
 </swiper>
 
 <include src="bgm.wxml" />

@@ -11,10 +11,25 @@ Page({
     extraHeight: app.globalData.extraHeight,
 
     audioContext: null,
-    isPlaying: false
+    isPlaying: false,
+
+    map: {
+      latitude: 30.71899975983765,
+      longitude: 103.82923803966423,
+      markers: [{
+        id: 1,
+        latitude: 30.71899975983765,
+        longitude: 103.82923803966423,
+        title: '云豪假期酒店',
+        iconPath: '../../images/location.png',
+        width: 50,
+        height: 50
+      }]
+    }
   },
 
   onReady: function () {
+    // audio part
     wx.setInnerAudioOption({
       obeyMuteSwitch: false,
       success: function() {
@@ -59,6 +74,9 @@ Page({
 
       // that.setData({ isPlaying: true });
     });
+  
+    // map part
+    this.mapCtx = wx.createMapContext('myMap')
   },
 
   onUnload: function () {
