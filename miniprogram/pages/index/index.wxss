@@ -14,4 +14,6 @@
 
 @import './page1.wxss';
 @import './page2.wxss';
+@import './page3.wxss';
+
 @import './bgm.wxss';

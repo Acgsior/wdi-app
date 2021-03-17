@@ -1,0 +1,53 @@
+.page.page-3 {
+  position: relative;
+  display: block;
+  height: 72vw;
+}
+
+.page-3 .map-container {
+  height: 100vw;
+}
+
+.page-3 .map {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.page-3 .shade {
+  position: absolute;
+  width: 72vw;
+  height: 72vw;
+  background-color: #ffffff;
+  z-index: 10000;
+  border: 8rpx solid greenyellow;
+  opacity: 0.5;
+}
+
+.page-3 .shade--top-left {
+  transform: rotate(-45deg);
+  background-color: red;
+  top: -36vw;
+  left: -36vw;
+}
+
+.page-3 .shade--top-right {
+  transform: rotate(45deg);
+  background-color: blue;
+  top: -36vw;
+  right: -36vw;
+}
+
+.page-3 .shade--bottom-left {
+  transform: rotate(-45deg);
+  background-color: darkgoldenrod;
+  bottom: -36vw;
+  left: -36vw;
+}
+
+.page-3 .shade--bottom-right {
+  transform: rotate(45deg);
+  background-color: blueviolet;
+  bottom: -36vw;
+  right: -36vw;
+}
