@@ -8,7 +8,7 @@
 .address .subject {
   color: var(--main-gold-color);
   font-style: italic;
-  font-size: 52rpx;
+  font-size: 56rpx;
 }
 
 .address .content,
