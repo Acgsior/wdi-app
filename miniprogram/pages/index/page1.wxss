@@ -3,11 +3,10 @@
 }
 
 .page-1 .top .top-content {
-  font-size: 68rpx;
-  font-weight: 500;
+  font-size: 76rpx;
   color: var(--main-gold-color);
   text-align: center;
-  letter-spacing: 4rpx;
+  letter-spacing: 2rpx;
 }
 
 .page-1 .main {
