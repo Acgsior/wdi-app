@@ -1,20 +1,16 @@
 /* components/bottomsquare/bottomsquare.wxss */
-.bottom-square .bold-square .square--inner {
-  border-width: 8rpx;
-}
-
 .bottom-square .separator {
   display: flex;
-  margin-top: 8rpx;
-  height: 40rpx;
+  margin-top: 7rpx;
+  height: 100rpx;
 }
 
 .bottom-square .separator--left {
   width: 50%;
-  border-right: 2rpx solid var(--main-gold-color);
+  border-right: 1rpx solid var(--main-gold-color);
 }
 
 .bottom-square .separator--right {
   width: 50%;
-  border-left: 2rpx solid var(--main-gold-color);
+  border-left: 1rpx solid var(--main-gold-color);
 }

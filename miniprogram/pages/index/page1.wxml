@@ -1,9 +1,9 @@
 <view class="page page-1">
   <view class="top">
-    <view class="top-content">
+    <view class="top-content futura">
       WEDDING
     </view>
-    <view class="top-content">
+    <view class="top-content futura">
       INVITATION
     </view>
   </view>
@@ -12,7 +12,7 @@
       <view class="main-bg--rect-inside" />
     </view>
     <view class="main-bg-img">
-      <image src="../../images/bouquet.png" style="height: {{863 + 0.5 * extraHeight}}rpx;" />
+      <image src="../../images/bouquet.png" style="height: {{836 + 0.5 * extraHeight}}rpx;" />
     </view>
     <view class="protagonist">
       <view class="protagonist-top"></view>
