@@ -1,52 +1,28 @@
-.page.page-3 {
-  position: relative;
-  display: block;
-  height: 72vw;
+.page-4 .map-container {
+  padding: 40rpx 20rpx 0;
 }
 
-.page-3 .map-container {
-  height: 740rpx;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  padding-top: 20rpx;
+.page-4 .map-container--inside {
+  padding: 8rpx;
+  border: 2rpx solid var(--main-gold-color);
+  border-radius: 4rpx;
 }
 
-.page-3 .map {
-  position: absolute;
-  top: 0;
-  width: 720rpx;
-  height: 720rpx;
+.page-4 .map {
+  width: 680rpx;
+  height: 560rpx;
+  border: 4rpx solid var(--main-gold-color);
+  border-radius: 4rpx;
 }
 
-.page-3 .shade {
-  position: absolute;
-  width: 600rpx;
-  height: 600rpx;
-  background-color: #ffffff;
-  z-index: 1000;
+.page-4 .time {
+  margin-top: 80rpx;
 }
 
-.page-3 .shade--top-left {
-  transform: rotate(-45deg);
-  top: -330rpx;
-  left: -300rpx;
-}
-
-.page-3 .shade--top-right {
-  transform: rotate(45deg);
-  top: -330rpx;
-  right: -300rpx;
-}
-
-.page-3 .shade--bottom-left {
-  transform: rotate(-45deg);
-  bottom: -500rpx;
-  left: -300rpx;
-}
-
-.page-3 .shade--bottom-right {
-  transform: rotate(45deg);
-  bottom: -500rpx;
-  right: -300rpx;
+.page-4 .blessing {
+  width: 100%;
+  text-align: center;
+  color: var(--main-blue-color);
+  font-size: 66rpx;
+  margin: 56rpx;
 }

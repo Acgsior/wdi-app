@@ -1,0 +1,12 @@
+<!--components/address/address.wxml-->
+<view class="address">
+  <view class="subject signature">
+    Address
+  </view>
+  <view class="content">
+    云豪假期酒店三楼宴会厅
+  </view>
+  <view class="description">
+    温江区江宁南路266号(近国色天香)
+  </view>
+</view>

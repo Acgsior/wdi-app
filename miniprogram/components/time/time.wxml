@@ -1,0 +1,12 @@
+<!--components/time.wxml-->
+<view class="time">
+  <view class="subject signature">
+    Time
+  </view>
+  <view class="content">
+    2021.04.24 / 辛丑年三月十三
+  </view>
+  <view class="description">
+    星期六
+  </view>
+</view>

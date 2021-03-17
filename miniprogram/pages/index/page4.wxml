@@ -1,10 +1,16 @@
-<view class="page page-3">
+<view class="page page-4">
   <view class="map-container">
-    <map id="hotelMap" class="map" latitude="{{map.latitude}}"
-      longitude="{{map.longitude}}" markers="{{map.markers}}" show-location />
-    <view class="shade shade--top-left"></view>
-    <view class="shade shade--top-right"></view>
-    <view class="shade shade--bottom-left"></view>
-    <view class="shade shade--bottom-right"></view>
+    <view class="map-container--">
+      <map id="hotelMap" class="map" latitude="{{map.latitude}}" longitude="{{map.longitude}}" markers="{{map.markers}}"
+        show-location />
+    </view>
+  </view>
+  <time />
+  <address />
+  <view class="blessing">
+    分享我们的幸福
+  </view>
+  <view class="bottom">
+    <bottomsquare />
   </view>
 </view>
