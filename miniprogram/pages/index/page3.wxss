@@ -5,49 +5,48 @@
 }
 
 .page-3 .map-container {
-  height: 100vw;
+  height: 740rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding-top: 20rpx;
 }
 
 .page-3 .map {
   position: absolute;
   top: 0;
-  left: 0;
+  width: 720rpx;
+  height: 720rpx;
 }
 
 .page-3 .shade {
   position: absolute;
-  width: 72vw;
-  height: 72vw;
+  width: 600rpx;
+  height: 600rpx;
   background-color: #ffffff;
-  z-index: 10000;
-  border: 8rpx solid greenyellow;
-  opacity: 0.5;
+  z-index: 1000;
 }
 
 .page-3 .shade--top-left {
   transform: rotate(-45deg);
-  background-color: red;
-  top: -36vw;
-  left: -36vw;
+  top: -330rpx;
+  left: -300rpx;
 }
 
 .page-3 .shade--top-right {
   transform: rotate(45deg);
-  background-color: blue;
-  top: -36vw;
-  right: -36vw;
+  top: -330rpx;
+  right: -300rpx;
 }
 
 .page-3 .shade--bottom-left {
   transform: rotate(-45deg);
-  background-color: darkgoldenrod;
-  bottom: -36vw;
-  left: -36vw;
+  bottom: -500rpx;
+  left: -300rpx;
 }
 
 .page-3 .shade--bottom-right {
   transform: rotate(45deg);
-  background-color: blueviolet;
-  bottom: -36vw;
-  right: -36vw;
+  bottom: -500rpx;
+  right: -300rpx;
 }

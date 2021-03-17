@@ -1,9 +1,9 @@
 <view class="page page-3">
   <view class="map-container">
+    <map id="hotelMap" class="map" latitude="{{map.latitude}}"
+      longitude="{{map.longitude}}" markers="{{map.markers}}" show-location />
     <view class="shade shade--top-left"></view>
     <view class="shade shade--top-right"></view>
-    <map id="hotelMap" class="map" style="width: 100vw; height: 100vw;" latitude="{{map.latitude}}"
-      longitude="{{map.longitude}}" markers="{{map.markers}}" show-location />
     <view class="shade shade--bottom-left"></view>
     <view class="shade shade--bottom-right"></view>
   </view>
