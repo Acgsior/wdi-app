@@ -78,25 +78,6 @@
   height: 20rpx;
 }
 
-.page-2 .info-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20rpx;
-}
-
-.page-2 .info-item .subject {
-  color: var(--main-gold-color);
-  font-style: italic;
-  font-size: 48rpx;
-}
-
-.page-2 .info-item .content,
-.page-2 .info-item .description {
-  font-size: 28rpx;
-  line-height: 36rpx;
-}
-
 .page-2 .wedding {
   color: var(--main-gold-color);
   text-align: center;

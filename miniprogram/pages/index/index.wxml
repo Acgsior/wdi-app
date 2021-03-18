@@ -1,10 +1,13 @@
 <!--index.wxml-->
 <swiper class="page-swiper" vertical="{{true}}">
-  <swiper-item>
+  <!-- <swiper-item>
     <include src="page1.wxml" />
   </swiper-item>
   <swiper-item>
     <include src="page2.wxml" />
+  </swiper-item> -->
+  <swiper-item>
+    <include src="page3.wxml" />
   </swiper-item>
   <swiper-item>
     <include src="page4.wxml" />

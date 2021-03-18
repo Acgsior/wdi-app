@@ -1,0 +1,19 @@
+<view class="page page-3">
+  <view class="container">
+    <view class="center-bg-rect">
+      <view class="center-bg-rect--inside"></view>
+    </view>
+    <view class="horizon-img">
+      <image src="../../images/hoz.png"></image>
+    </view>
+    <view class="horizon-bg-rect"></view>
+    <view class="vertical-img">
+      <image src="../../images/ver.png"></image>
+    </view>
+    <view class="vertical-bg-rect"></view>
+    <view class="bottom-bg-rect"></view>
+  </view>
+  <view class="bottom">
+    <bottomsquare />
+  </view>
+</view>

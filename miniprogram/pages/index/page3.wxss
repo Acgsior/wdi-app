@@ -1,0 +1,70 @@
+.page-3 .container {
+  position: relative;
+  height: 900rpx;
+  padding: 160rpx 96rpx 60rpx;
+}
+
+.page-3 image {
+  position: absolute;
+}
+
+.page-3 .horizon-img image {
+  width: 480rpx;
+  height: 320rpx;
+  left: 40rpx;
+  z-index: 12;
+  top: 460rpx;
+}
+
+.page-3 .horizon-bg-rect {
+  height: 120rpx;
+  top: 740rpx;
+  border-left: 4rpx solid var(--main-gold-color);
+  position: absolute;
+}
+
+.page-3 .vertical-img image {
+  height: 480rpx;
+  width: 320rpx;
+  right: 40rpx;
+  top: 280rpx;
+  z-index: 11;
+}
+
+.page-3 .vertical-bg-rect {
+  height: 480rpx;
+  width: 320rpx;
+  right: 80rpx;
+  top: 320rpx;
+  border: 4rpx solid var(--main-gold-color);
+  position: absolute;
+  border-radius: 4rpx;
+}
+
+.page-3 .center-bg-rect {
+  border: 4rpx solid var(--main-gold-color);
+  min-width: 560rpx;
+  min-height: 540rpx;
+  border-radius: 8rpx;
+  padding: 8rpx;
+}
+
+.page-3 .center-bg-rect--inside {
+  border-radius: 8rpx;
+  border: 2rpx solid var(--main-gold-color);
+  min-width: 520rpx;
+  min-height: 500rpx;
+  margin: auto;
+}
+
+.page-3 .bottom-bg-rect {
+  border-top: 4rpx solid var(--main-gold-color);
+  width: 680rpx;
+  position: absolute;
+  top: 860rpx;
+  right: 0;
+}
+
+.page-3 .bottom {
+  margin-top: 24rpx;
+}
