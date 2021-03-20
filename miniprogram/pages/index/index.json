@@ -3,6 +3,7 @@
     "square": "/components/square/square",
     "bottomsquare": "/components/bottomsquare/bottomsquare",
     "time": "/components/time/time",
-    "address": "/components/address/address"
+    "address": "/components/address/address",
+    "spin": "/components/spin/spin"
   }
 }

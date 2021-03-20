@@ -1,0 +1,19 @@
+<!--components/spin/spin.wxml-->
+<view class="spin {{spinning ? 'spinning' : ''}}">
+  <view class="spin-container">
+    <view class="spin-content">
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+  <view class="spin-percent">
+  </view>
+</view>

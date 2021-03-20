@@ -2,6 +2,7 @@
   position: fixed;
   top: 64rpx;
   right: 48rpx;
+  z-index: 200;
 }
 
 .bgm--fixed image {

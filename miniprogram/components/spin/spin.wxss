@@ -1,0 +1,112 @@
+/* components/spin/spin.wxss */
+@keyframes spin-content {
+  0% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+
+.spin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(56, 56, 56, 0.65);
+  z-index: 100;
+}
+
+.spin-percent {
+  color: #fff;
+  z-index: 101;
+}
+
+.spin-content view {
+  left: 94px;
+  top: 48px;
+  position: absolute;
+  animation: spin-content linear 1.25s infinite;
+  background: var(--main-gold-color);
+  width: 12px;
+  height: 24px;
+  border-radius: 6px / 12px;
+  transform-origin: 6px 52px;
+}
+
+.spin-content view:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.125s;
+}
+
+.spin-content view:nth-child(2) {
+  transform: rotate(36deg);
+  animation-delay: -1s;
+}
+
+.spin-content view:nth-child(3) {
+  transform: rotate(72deg);
+  animation-delay: -0.875s;
+}
+
+.spin-content view:nth-child(4) {
+  transform: rotate(108deg);
+  animation-delay: -0.75s;
+}
+
+.spin-content view:nth-child(5) {
+  transform: rotate(144deg);
+  animation-delay: -0.625s;
+}
+
+.spin-content view:nth-child(6) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+
+.spin-content view:nth-child(7) {
+  transform: rotate(216deg);
+  animation-delay: -0.375s;
+}
+
+.spin-content view:nth-child(8) {
+  transform: rotate(252deg);
+  animation-delay: -0.25s;
+}
+
+.spin-content view:nth-child(9) {
+  transform: rotate(288deg);
+  animation-delay: -0.125s;
+}
+
+.spin-content view:nth-child(10) {
+  transform: rotate(324deg);
+  animation-delay: 0s;
+}
+
+.spin-container {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.spin-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  /* see note above */
+}
+
+.spin-content view {
+  box-sizing: content-box;
+}

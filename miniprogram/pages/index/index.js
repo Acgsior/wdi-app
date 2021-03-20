@@ -5,14 +5,23 @@ const app = getApp();
 // const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
 const audioURL = 'https://7764-wdi-9g06h4rvb0ad273b-1256827581.tcb.qcloud.la/will-you-marry-me-marlboro-32kbps.mp3?sign=a9f499c60953584d41af8e43befcf7af&t=1615743181';
 
+const assetTotal = 5;
+
 Page({
   data: {
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
-
+    // loading
+    assetMgm: {
+      assetIntervalID: -1,
+      assetLoadedCount: 0,
+      assetLoaded: false,
+      assetLoadPercent: 0,
+    },
+    // audio
     audioContext: null,
     isPlaying: false,
-
+    // map
     map: {
       latitude: 30.71899975983765,
       longitude: 103.82923803966423,
@@ -32,10 +41,10 @@ Page({
     // audio part
     wx.setInnerAudioOption({
       obeyMuteSwitch: false,
-      success: function() {
+      success: function () {
         console.log('= [audio] audio set obey mute switch');
       },
-      fail: function(e) {
+      fail: function (e) {
         console.log('= [audio] audio set obey mute switch failed', e);
       }
     });
@@ -74,7 +83,7 @@ Page({
 
       // that.setData({ isPlaying: true });
     });
-  
+
     // map part
     this.mapCtx = wx.createMapContext('myMap')
   },
@@ -83,16 +92,20 @@ Page({
     this.data.audioContext.destroy();
   },
 
-  play: function() {
+  play: function () {
     this.data.audioContext.play();
 
-    this.setData({ isPlaying: true });
+    this.setData({
+      isPlaying: true
+    });
   },
 
-  pause: function() {
+  pause: function () {
     this.data.audioContext.pause();
 
-    this.setData({ isPlaying: false });
+    this.setData({
+      isPlaying: false
+    });
   },
 
   onShareAppMessage: function (res) {
