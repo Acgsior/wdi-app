@@ -4,15 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    percent: Number,
+    spinning: Boolean
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    percent: 0,
-    spinning: false
+
   },
 
   /**
@@ -20,20 +20,6 @@ Component({
    */
   methods: {
 
-  },
-
-  pageLifetimes: {
-    show: function () {
-      this.setData({
-        percent: 0
-      });
-    },
-
-    hide: function () {
-      this.setData({
-        percent: 0
-      });
-    },
   },
 
   options: {

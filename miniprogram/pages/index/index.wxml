@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<spin />
+<spin wx:if="{{!assetMgm.loaded}}" spinning="{{!assetMgm.loaded}}" percent="{{assetMgm.percent}}" />
+
 <swiper class="page-swiper" vertical="{{true}}">
   <swiper-item>
     <include src="page1.wxml" />

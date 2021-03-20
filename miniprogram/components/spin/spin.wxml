@@ -15,5 +15,6 @@
     </view>
   </view>
   <view class="spin-percent">
+    {{percent}} %
   </view>
 </view>

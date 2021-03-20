@@ -12,7 +12,8 @@
       <view class="main-bg--rect-inside" />
     </view>
     <view class="main-bg-img">
-      <image src="../../images/bouquet.png" style="height: {{836 + 0.5 * extraHeight}}rpx;" />
+      <image src="../../images/bouquet.png" style="height: {{836 + 0.5 * extraHeight}}rpx;"
+        bindload="notifyAssetLoaded" />
     </view>
     <view class="protagonist">
       <view class="protagonist-top"></view>
