@@ -2,16 +2,16 @@
 <view class="spin {{spinning ? 'spinning' : ''}}">
   <view class="spin-container">
     <view class="spin-content">
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
-      <view></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
+      <view class="spin-el"></view>
     </view>
   </view>
   <view class="spin-percent">

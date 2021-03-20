@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(56, 56, 56, 0.65);
+  background-color: rgba(100, 100, 100, 0.95);
   z-index: 100;
 }
 
@@ -39,7 +39,7 @@
   margin-top: -320rpx;
 }
 
-.spin-content view {
+.spin-content .spin-el {
   left: 94px;
   top: 48px;
   position: absolute;
@@ -51,52 +51,52 @@
   transform-origin: 6px 52px;
 }
 
-.spin-content view:nth-child(1) {
+.spin-content .spin-el:nth-child(1) {
   transform: rotate(0deg);
   animation-delay: -1.125s;
 }
 
-.spin-content view:nth-child(2) {
+.spin-content .spin-el:nth-child(2) {
   transform: rotate(36deg);
   animation-delay: -1s;
 }
 
-.spin-content view:nth-child(3) {
+.spin-content .spin-el:nth-child(3) {
   transform: rotate(72deg);
   animation-delay: -0.875s;
 }
 
-.spin-content view:nth-child(4) {
+.spin-content .spin-el:nth-child(4) {
   transform: rotate(108deg);
   animation-delay: -0.75s;
 }
 
-.spin-content view:nth-child(5) {
+.spin-content .spin-el:nth-child(5) {
   transform: rotate(144deg);
   animation-delay: -0.625s;
 }
 
-.spin-content view:nth-child(6) {
+.spin-content .spin-el:nth-child(6) {
   transform: rotate(180deg);
   animation-delay: -0.5s;
 }
 
-.spin-content view:nth-child(7) {
+.spin-content .spin-el:nth-child(7) {
   transform: rotate(216deg);
   animation-delay: -0.375s;
 }
 
-.spin-content view:nth-child(8) {
+.spin-content .spin-el:nth-child(8) {
   transform: rotate(252deg);
   animation-delay: -0.25s;
 }
 
-.spin-content view:nth-child(9) {
+.spin-content .spin-el:nth-child(9) {
   transform: rotate(288deg);
   animation-delay: -0.125s;
 }
 
-.spin-content view:nth-child(10) {
+.spin-content .spin-el:nth-child(10) {
   transform: rotate(324deg);
   animation-delay: 0s;
 }
@@ -116,9 +116,4 @@
   transform: translateZ(0) scale(1);
   backface-visibility: hidden;
   transform-origin: 0 0;
-  /* see note above */
-}
-
-.spin-content view {
-  box-sizing: content-box;
 }

@@ -1,9 +1,9 @@
 <view class="page page-1">
   <view class="top">
-    <view class="top-content futura">
+    <view class="top-content top-content-1 futura">
       WEDDING
     </view>
-    <view class="top-content futura">
+    <view class="top-content top-content-2 futura">
       INVITATION
     </view>
   </view>
@@ -19,7 +19,7 @@
       <view class="protagonist-top"></view>
       <view class="protagonist-container">
         <view class="protagonist-content">
-          <view class="bridegroom">
+          <view class="protagonist-name bridegroom">
             <view class="protagonist-name--cn">
               覃一斐
             </view>
@@ -30,7 +30,7 @@
           <view class="protagonist-split">
             <square className="protagonist-square" />
           </view>
-          <view class="bride">
+          <view class="protagonist-name bride">
             <view class="protagonist-name--cn">
               张颖
             </view>
@@ -42,7 +42,7 @@
       </view>
     </view>
   </view>
-  <view class="bottom">
+  <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}}">
     <bottomsquare />
   </view>
 </view>

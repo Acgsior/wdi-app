@@ -6,14 +6,18 @@ const app = getApp();
 
 // FIXME need check why fileid do not work
 // const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
-const audioURL = 'https://7764-wdi-9g06h4rvb0ad273b-1256827581.tcb.qcloud.la/will-you-marry-me-marlboro-32kbps.mp3?sign=a9f499c60953584d41af8e43befcf7af&t=1615743181';
+const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
 
+// FIXME update when page#3 photograph source is confirmed
 const assetTotal = 2;
 
 Page({
   data: {
+    // dom
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
+    bottomReady: false,
+
     // loading
     assetMgm: {
       intervalId: -1,
@@ -21,9 +25,11 @@ Page({
       loaded: false,
       percent: 0
     },
+
     // audio
     audioContext: null,
     isPlaying: false,
+
     // map
     map: {
       latitude: 30.71899975983765,
@@ -37,7 +43,7 @@ Page({
         width: 50,
         height: 50
       }]
-    }
+    },
   },
 
   onReady: function () {
@@ -88,8 +94,14 @@ Page({
       // audioContext.play();
 
       // that.setData({ isPlaying: true });
-      this.notifyAssetLoaded('audio');
+
+      // that.notifyAssetLoaded('audio');
     });
+
+    // FIXME mock audio loaded
+    setTimeout(function () {
+      that.notifyAssetLoaded('audio');
+    }, 1500);
 
     // map part
     this.mapCtx = wx.createMapContext('myMap')
@@ -123,6 +135,8 @@ Page({
           percent: 100
         }
       })
+
+      this.startAnimationChain1();
     } else {
       that.setData({
         assetMgm: {
@@ -145,7 +159,7 @@ Page({
     }
   },
 
-  notifyAssetLoaded: function(e) {
+  notifyAssetLoaded: function (e) {
     console.log('= [asset] asset loaded', e);
     const loadedCount = this.data.assetMgm.loadedCount + 1;
     this.setData({
@@ -173,6 +187,188 @@ Page({
     this.setData({
       assetMgm
     });
+  },
+
+  startAnimationChain1: function () {
+    console.log('= [ani] start animation after loading');
+    const that = this;
+
+    that.animateMainBgImg();
+    that.animateTop1();
+    setTimeout(this.animateTop2, 800);
+    setTimeout(this.animateMainBgRect, 1600);
+    setTimeout(this.animateProtagonist, 1600);
+    setTimeout(this.animateBottom, 2800);
+    setTimeout(this.animateProtagonistName, 3000);
+    setTimeout(this.animateProtagonistSplit, 3000);
+  },
+
+  animateMainBgImg: function () {
+    this.animate('.page-1 .main-bg-img', [{
+        ease: 'ease-out',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.clearAnimation('.main-bg-img', {}, function () {
+        console.log("= [ani] .main-bg-img animation")
+      })
+    }.bind(this));
+  },
+
+  animateTop1: function () {
+    this.animate('.page-1 .top-content-1', [{
+        opacity: 0,
+        translateY: 40,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+      }
+    ], 800, function () {
+      this.clearAnimation('.top-content-1', {
+        translateY: true
+      }, function () {
+        console.log("= [ani] .top-content-1 animation")
+      })
+    }.bind(this));
+  },
+
+  animateTop2: function () {
+    this.animate('.page-1 .top-content-2', [{
+        opacity: 0,
+        translateY: 40,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+      }
+    ], 800, function () {
+      this.clearAnimation('.top-content-2', {
+        translateY: true
+      }, function () {
+        console.log("= [ani] .top-content-2 animation")
+      })
+    }.bind(this));
+  },
+
+  animateMainBgRect: function () {
+    this.animate('.page-1 .main-bg--rect', [{
+        ease: 'ease-out',
+        opacity: 0,
+        translateY: 40,
+        rotate: 45
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0,
+        rotate: 45
+      }
+    ], 800, function () {
+      this.clearAnimation('.main-bg--rect', {
+        translateY: true
+      }, function () {
+        console.log("= [ani] .main-bg--rect animation")
+      })
+    }.bind(this));
+  },
+
+  animateProtagonist: function () {
+    this.animate('.page-1 .protagonist', [{
+        ease: 'ease-out',
+        offset: 0,
+        opacity: 0,
+        scale3d: [0.3, 0.3, 0.3]
+      },
+      {
+        ease: 'ease-out',
+        offset: 0.5,
+        opacity: 1
+      }
+    ], 1600, function () {
+      this.clearAnimation('.protagonist', {
+        scale3d: true
+      }, function () {
+        console.log("= [ani] .protagonist animation")
+      })
+    }.bind(this));
+  },
+
+  animateProtagonistName: function () {
+    this.animate('.page-1 .protagonist-name', [{
+        ease: 'ease-out',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 400, function () {
+      this.clearAnimation('.protagonist-name', {}, function () {
+        console.log("= [ani] .protagonist-name animation")
+      })
+    }.bind(this));
+  },
+
+  animateProtagonistSplit: function () {
+    this.animate('.page-1 .protagonist-split', [{
+        offset: 0,
+        opacity: 0,
+      },
+      {
+        offset: 0.2,
+        opacity: 1
+      },
+      {
+        offset: 0.4,
+        scale: [1.3, 1.3]
+      },
+      {
+        offset: 0.6,
+        scale: [1, 1]
+      },
+      {
+        offset: 0.8,
+        scale: [1.3, 1.3]
+      },
+      {
+        offset: 1,
+        scale: [1, 1]
+      },
+
+    ], 1000, function () {
+      this.clearAnimation('.protagonist-split', {}, function () {
+        console.log("= [ani] .protagonist-split animation")
+      })
+    }.bind(this));
+  },
+
+  animateBottom: function () {
+    const that = this;
+    this.animate('.page-1 .bottom', [{
+        ease: 'ease-out',
+        opacity: 0,
+        translateY: 72
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0
+      }
+    ], 1600, function () {
+      this.clearAnimation('.bottom', {
+        translateY: true
+      }, function () {
+        console.log("= [ani] .bottom animation");
+        that.setData({
+          bottomReady: true
+        });
+      })
+    }.bind(this));
   },
 
   play: function () {
