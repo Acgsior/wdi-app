@@ -6,6 +6,8 @@ const {
   pushIfAbsent
 } = animationUtils;
 
+const notAnimatedCls = 'not-animated';
+
 const app = getApp();
 
 // FIXME need check why fileid do not work
@@ -21,16 +23,20 @@ Page({
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
     bottomReady: false,
+
+    // swiper page index
+    pageIndex: 0,
+
     // animation class name of page#1
     p1AnimationCls: {
-      bgImg: 'not-animated',
-      bgRect: 'not-animated',
-      top1: 'not-animated',
-      top2: 'not-animated',
-      protagonist: 'not-animated',
-      protagonistName: 'not-animated',
-      protagonistSplit: 'not-animated',
-      bottom: 'not-animated'
+      bgImg: notAnimatedCls,
+      bgRect: notAnimatedCls,
+      top1: notAnimatedCls,
+      top2: notAnimatedCls,
+      protagonist: notAnimatedCls,
+      protagonistName: notAnimatedCls,
+      protagonistSplit: notAnimatedCls,
+      bottom: notAnimatedCls
     },
 
     // loading
@@ -136,6 +142,56 @@ Page({
     this.cleanAssetLoadRes();
   },
 
+  handlePageChange: function (e) {
+    const {
+      detail: {
+        current,
+        source
+      }
+    } = e;
+    console.log('= [swiper] handle page change');
+  },
+
+  handlePageChangeFinish: function (e) {
+    const {
+      detail: {
+        current
+      }
+    } = e;
+    console.log('= [swiper] handle page change finish');
+
+    switch (current) {
+      case 0: {
+        this.startAnimationChain1();
+        break;
+      }
+      case 1: {
+        this.startAnimationChain2();
+        break;
+      }
+    }
+
+    // reset animate state after changing to the other page
+    const prevPageAniKey = `p${this.data.pageIndex + 1}AnimationCls`;
+    const animationClassKeys = Object.keys(this.data[prevPageAniKey]);
+    const nextAnimationClassData = animationClassKeys.reduce((acc, cur) => ({
+      ...acc,
+      [cur]: notAnimatedCls
+    }), {});
+    this.setData({
+      [prevPageAniKey]: nextAnimationClassData
+    });
+
+    // FIXME combine setData
+    this.setData({
+      pageIndex: current
+    });
+
+    // FIXME need think about what if animation do not completed?
+    // OPTION#1: cancel all setTimeout
+    // OPTION#2: directly call clearAnimation
+  },
+
   checkAssetLoadState: function (that) {
     const loaded = that.data.assetMgm.loadedCount === assetTotal
     if (loaded) {
@@ -210,7 +266,7 @@ Page({
   },
 
   startAnimationChain1: function () {
-    console.log('= [ani] start animation after loading');
+    console.log('= [ani] start animation chain#1');
     const that = this;
 
     that.animateP1MainBgImg();
@@ -221,6 +277,10 @@ Page({
     setTimeout(this.animateP1Bottom, 2800);
     setTimeout(this.animateP1ProtagonistName, 3000);
     setTimeout(this.animateP1ProtagonistSplit, 3000);
+  },
+
+  startAnimationChain2: function () {
+    console.log('= [ani] start animation chain#2');
   },
 
   animateP1MainBgImg: function () {
@@ -319,9 +379,7 @@ Page({
       this.setData({
         ['p1AnimationCls.protagonist']: ''
       });
-      this.clearAnimation('.protagonist', {
-        scale3d: true
-      }, function () {
+      this.clearAnimation('.protagonist', null, function () {
         console.log("= [ani] .protagonist animation")
       })
     }.bind(this));
