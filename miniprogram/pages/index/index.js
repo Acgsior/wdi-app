@@ -1,6 +1,8 @@
 //index.js
 import assetUtils from '../../utils/assetUtils';
+import animationUtils from '../../utils/animationUtils';
 
+const { pushIfAbsent } = animationUtils;
 
 const app = getApp();
 
@@ -17,6 +19,17 @@ Page({
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
     bottomReady: false,
+    // animation state of page#1
+    p1AnimationCls: {
+      bgImg: 'not-animated',
+      bgRect: 'not-animated',
+      top1: 'not-animated',
+      top2: 'not-animated',
+      protagonist: 'not-animated',
+      protagonistName: 'not-animated',
+      protagonistSplit: 'not-animated',
+      bottom: 'not-animated'
+    },
 
     // loading
     assetMgm: {
@@ -189,106 +202,117 @@ Page({
     });
   },
 
+  getAniStateClass: function(page, key) {
+    const aniState = this.data[`aniStateP${page}`][key];
+    return aniState ? '' : 'not-animated'
+  },
+
   startAnimationChain1: function () {
     console.log('= [ani] start animation after loading');
     const that = this;
 
-    that.animateMainBgImg();
-    that.animateTop1();
-    setTimeout(this.animateTop2, 800);
-    setTimeout(this.animateMainBgRect, 1600);
-    setTimeout(this.animateProtagonist, 1600);
-    setTimeout(this.animateBottom, 2800);
-    setTimeout(this.animateProtagonistName, 3000);
-    setTimeout(this.animateProtagonistSplit, 3000);
+    that.animateP1MainBgImg();
+    that.animateP1Top1();
+    setTimeout(this.animateP1Top2, 800);
+    setTimeout(this.animateP1MainBgRect, 1600);
+    setTimeout(this.animateP1Protagonist, 1600);
+    setTimeout(this.animateP1Bottom, 2800);
+    setTimeout(this.animateP1ProtagonistName, 3000);
+    setTimeout(this.animateP1ProtagonistSplit, 3000);
   },
 
-  animateMainBgImg: function () {
+  animateP1MainBgImg: function () {
     this.animate('.page-1 .main-bg-img', [{
-        ease: 'ease-out',
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      ease: 'ease-out',
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 2000, function () {
-      this.clearAnimation('.main-bg-img', {}, function () {
+      this.setData({
+        ['asp1.']: true
+      });
+      this.clearAnimation('.main-bg-img', null, function () {
         console.log("= [ani] .main-bg-img animation")
       })
     }.bind(this));
   },
 
-  animateTop1: function () {
+  animateP1Top1: function () {
     this.animate('.page-1 .top-content-1', [{
-        opacity: 0,
-        translateY: 40,
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-      }
+      opacity: 0,
+      translateY: 40,
+    },
+    {
+      opacity: 1,
+      translateY: 0,
+    }
     ], 800, function () {
-      this.clearAnimation('.top-content-1', {
-        translateY: true
-      }, function () {
+      this.setData({
+        ['asp1.top1']: true
+      });
+      this.clearAnimation('.top-content-1', null, function () {
         console.log("= [ani] .top-content-1 animation")
       })
     }.bind(this));
   },
 
-  animateTop2: function () {
+  animateP1Top2: function () {
     this.animate('.page-1 .top-content-2', [{
-        opacity: 0,
-        translateY: 40,
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-      }
+      opacity: 0,
+      translateY: 40,
+    },
+    {
+      opacity: 1,
+      translateY: 0,
+    }
     ], 800, function () {
-      this.clearAnimation('.top-content-2', {
-        translateY: true
-      }, function () {
+      this.setData({
+        ['asp1.top2']: true
+      });
+      this.clearAnimation('.top-content-2', null, function () {
         console.log("= [ani] .top-content-2 animation")
       })
     }.bind(this));
   },
 
-  animateMainBgRect: function () {
+  animateP1MainBgRect: function () {
     this.animate('.page-1 .main-bg--rect', [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: 40,
-        rotate: 45
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0,
-        rotate: 45
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: 40,
+      rotate: 45
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0,
+      rotate: 45
+    }
     ], 800, function () {
-      this.clearAnimation('.main-bg--rect', {
-        translateY: true
-      }, function () {
+      this.setData({
+        ['asp1.mainBgRect']: true
+      });
+      this.clearAnimation('.main-bg--rect', null, function () {
         console.log("= [ani] .main-bg--rect animation")
       })
     }.bind(this));
   },
 
-  animateProtagonist: function () {
+  animateP1Protagonist: function () {
     this.animate('.page-1 .protagonist', [{
-        ease: 'ease-out',
-        offset: 0,
-        opacity: 0,
-        scale3d: [0.3, 0.3, 0.3]
-      },
-      {
-        ease: 'ease-out',
-        offset: 0.5,
-        opacity: 1
-      }
+      ease: 'ease-out',
+      offset: 0,
+      opacity: 0,
+      scale3d: [0.3, 0.3, 0.3]
+    },
+    {
+      ease: 'ease-out',
+      offset: 0.5,
+      opacity: 1
+    }
     ], 1600, function () {
       this.clearAnimation('.protagonist', {
         scale3d: true
@@ -298,71 +322,78 @@ Page({
     }.bind(this));
   },
 
-  animateProtagonistName: function () {
+  animateP1ProtagonistName: function () {
     this.animate('.page-1 .protagonist-name', [{
-        ease: 'ease-out',
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      ease: 'ease-out',
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 400, function () {
-      this.clearAnimation('.protagonist-name', {}, function () {
+      this.setData({
+        ['asp1.protagonistName']: true
+      });
+      this.clearAnimation('.protagonist-name', null, function () {
         console.log("= [ani] .protagonist-name animation")
       })
     }.bind(this));
   },
 
-  animateProtagonistSplit: function () {
+  animateP1ProtagonistSplit: function () {
     this.animate('.page-1 .protagonist-split', [{
-        offset: 0,
-        opacity: 0,
-      },
-      {
-        offset: 0.2,
-        opacity: 1
-      },
-      {
-        offset: 0.4,
-        scale: [1.3, 1.3]
-      },
-      {
-        offset: 0.6,
-        scale: [1, 1]
-      },
-      {
-        offset: 0.8,
-        scale: [1.3, 1.3]
-      },
-      {
-        offset: 1,
-        scale: [1, 1]
-      },
+      offset: 0,
+      opacity: 0,
+    },
+    {
+      offset: 0.2,
+      opacity: 1
+    },
+    {
+      offset: 0.4,
+      scale: [1.3, 1.3]
+    },
+    {
+      offset: 0.6,
+      scale: [1, 1]
+    },
+    {
+      offset: 0.8,
+      scale: [1.3, 1.3]
+    },
+    {
+      offset: 1,
+      scale: [1, 1]
+    },
 
     ], 1000, function () {
-      this.clearAnimation('.protagonist-split', {}, function () {
+      this.setData({
+        ['asp1.protagonistSplit']: true
+      });
+      this.clearAnimation('.protagonist-split', null, function () {
         console.log("= [ani] .protagonist-split animation")
       })
     }.bind(this));
   },
 
-  animateBottom: function () {
+  animateP1Bottom: function () {
     const that = this;
     this.animate('.page-1 .bottom', [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: 72
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: 72
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 1600, function () {
-      this.clearAnimation('.bottom', {
-        translateY: true
-      }, function () {
+      this.setData({
+        ['asp1.bottom']: true
+      });
+      this.clearAnimation('.bottom', null, function () {
         console.log("= [ani] .bottom animation");
         that.setData({
           bottomReady: true

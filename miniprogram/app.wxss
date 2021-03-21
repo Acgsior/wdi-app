@@ -9,6 +9,6 @@ page {
   font-family: 'fzyou';
 }
 
-.transparent {
+.not-animated {
   opacity: 0;
 }

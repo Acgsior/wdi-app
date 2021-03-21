@@ -21,7 +21,6 @@
 
 .page-1 .main-bg-img {
   z-index: 1;
-  opacity: 0;
 }
 
 .page-1 .main-bg-img image {

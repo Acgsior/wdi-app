@@ -1,6 +1,6 @@
 <view class="page page-1">
   <view class="top">
-    <view class="top-content top-content-1 futura">
+    <view class="top-content top-content-1 futura {{getAniStateClass(1, 'top1')}}">
       WEDDING
     </view>
     <view class="top-content top-content-2 futura">
@@ -11,7 +11,7 @@
     <view class="main-bg--rect">
       <view class="main-bg--rect-inside" />
     </view>
-    <view class="main-bg-img">
+    <view class="main-bg-img {{getAniStateClass(1, 'mainBgImg')}}">
       <image src="../../images/bouquet.png" style="height: {{836 + 0.5 * extraHeight}}rpx;"
         bindload="notifyAssetLoaded" />
     </view>
