@@ -7,7 +7,6 @@
   color: var(--main-gold-color);
   text-align: center;
   letter-spacing: 2rpx;
-  opacity: 0;
 }
 
 .page-1 .main {
@@ -35,7 +34,6 @@
   border: 2rpx solid var(--main-gold-color);
   border-radius: 8rpx;
   padding: 4rpx;
-  opacity: 0;
 }
 
 .page-1 .main-bg--rect-inside {
@@ -50,7 +48,6 @@
   bottom: 34%;
   width: 100%;
   z-index: 11;
-  opacity: 0;
 }
 
 .page-1 .protagonist-top {
@@ -73,12 +70,7 @@
   justify-content: center;
   border-top: 4rpx solid var(--main-gold-color);
   border-bottom: 4rpx solid var(--main-gold-color);
-
   transform: perspective(400px);
-}
-
-.page-1 .protagonist-name {
-  opacity: 0;
 }
 
 .page-1 .protagonist-name--cn {
@@ -90,7 +82,6 @@
 .page-1 .protagonist-split {
   margin: 0 32rpx;
   color: var(--main-gold-color);
-  opacity: 0;
 }
 
 .page-1 .protagonist-square {
@@ -118,5 +109,4 @@
 
 .page-1 .bottom {
   margin-top: 24rpx;
-  opacity: 0;
 }

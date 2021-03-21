@@ -2,7 +2,9 @@
 import assetUtils from '../../utils/assetUtils';
 import animationUtils from '../../utils/animationUtils';
 
-const { pushIfAbsent } = animationUtils;
+const {
+  pushIfAbsent
+} = animationUtils;
 
 const app = getApp();
 
@@ -19,7 +21,7 @@ Page({
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
     bottomReady: false,
-    // animation state of page#1
+    // animation class name of page#1
     p1AnimationCls: {
       bgImg: 'not-animated',
       bgRect: 'not-animated',
@@ -202,7 +204,7 @@ Page({
     });
   },
 
-  getAniStateClass: function(page, key) {
+  getAniStateClass: function (page, key) {
     const aniState = this.data[`aniStateP${page}`][key];
     return aniState ? '' : 'not-animated'
   },
@@ -223,16 +225,16 @@ Page({
 
   animateP1MainBgImg: function () {
     this.animate('.page-1 .main-bg-img', [{
-      ease: 'ease-out',
-      opacity: 0,
-    },
-    {
-      ease: 'ease-out',
-      opacity: 1,
-    }
+        ease: 'ease-out',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
     ], 2000, function () {
       this.setData({
-        ['asp1.']: true
+        ['p1AnimationCls.bgImg']: ''
       });
       this.clearAnimation('.main-bg-img', null, function () {
         console.log("= [ani] .main-bg-img animation")
@@ -242,16 +244,16 @@ Page({
 
   animateP1Top1: function () {
     this.animate('.page-1 .top-content-1', [{
-      opacity: 0,
-      translateY: 40,
-    },
-    {
-      opacity: 1,
-      translateY: 0,
-    }
+        opacity: 0,
+        translateY: 40,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+      }
     ], 800, function () {
       this.setData({
-        ['asp1.top1']: true
+        ['p1AnimationCls.top1']: ''
       });
       this.clearAnimation('.top-content-1', null, function () {
         console.log("= [ani] .top-content-1 animation")
@@ -261,16 +263,16 @@ Page({
 
   animateP1Top2: function () {
     this.animate('.page-1 .top-content-2', [{
-      opacity: 0,
-      translateY: 40,
-    },
-    {
-      opacity: 1,
-      translateY: 0,
-    }
+        opacity: 0,
+        translateY: 40,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+      }
     ], 800, function () {
       this.setData({
-        ['asp1.top2']: true
+        ['p1AnimationCls.top2']: ''
       });
       this.clearAnimation('.top-content-2', null, function () {
         console.log("= [ani] .top-content-2 animation")
@@ -280,20 +282,20 @@ Page({
 
   animateP1MainBgRect: function () {
     this.animate('.page-1 .main-bg--rect', [{
-      ease: 'ease-out',
-      opacity: 0,
-      translateY: 40,
-      rotate: 45
-    },
-    {
-      ease: 'ease-out',
-      opacity: 1,
-      translateY: 0,
-      rotate: 45
-    }
+        ease: 'ease-out',
+        opacity: 0,
+        translateY: 40,
+        rotate: 45
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0,
+        rotate: 45
+      }
     ], 800, function () {
       this.setData({
-        ['asp1.mainBgRect']: true
+        ['p1AnimationCls.bgRect']: ''
       });
       this.clearAnimation('.main-bg--rect', null, function () {
         console.log("= [ani] .main-bg--rect animation")
@@ -303,17 +305,20 @@ Page({
 
   animateP1Protagonist: function () {
     this.animate('.page-1 .protagonist', [{
-      ease: 'ease-out',
-      offset: 0,
-      opacity: 0,
-      scale3d: [0.3, 0.3, 0.3]
-    },
-    {
-      ease: 'ease-out',
-      offset: 0.5,
-      opacity: 1
-    }
+        ease: 'ease-out',
+        offset: 0,
+        opacity: 0,
+        scale3d: [0.3, 0.3, 0.3]
+      },
+      {
+        ease: 'ease-out',
+        offset: 0.5,
+        opacity: 1
+      }
     ], 1600, function () {
+      this.setData({
+        ['p1AnimationCls.protagonist']: ''
+      });
       this.clearAnimation('.protagonist', {
         scale3d: true
       }, function () {
@@ -324,16 +329,16 @@ Page({
 
   animateP1ProtagonistName: function () {
     this.animate('.page-1 .protagonist-name', [{
-      ease: 'ease-out',
-      opacity: 0,
-    },
-    {
-      ease: 'ease-out',
-      opacity: 1,
-    }
+        ease: 'ease-out',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
     ], 400, function () {
       this.setData({
-        ['asp1.protagonistName']: true
+        ['p1AnimationCls.protagonistName']: ''
       });
       this.clearAnimation('.protagonist-name', null, function () {
         console.log("= [ani] .protagonist-name animation")
@@ -343,33 +348,33 @@ Page({
 
   animateP1ProtagonistSplit: function () {
     this.animate('.page-1 .protagonist-split', [{
-      offset: 0,
-      opacity: 0,
-    },
-    {
-      offset: 0.2,
-      opacity: 1
-    },
-    {
-      offset: 0.4,
-      scale: [1.3, 1.3]
-    },
-    {
-      offset: 0.6,
-      scale: [1, 1]
-    },
-    {
-      offset: 0.8,
-      scale: [1.3, 1.3]
-    },
-    {
-      offset: 1,
-      scale: [1, 1]
-    },
+        offset: 0,
+        opacity: 0,
+      },
+      {
+        offset: 0.2,
+        opacity: 1
+      },
+      {
+        offset: 0.4,
+        scale: [1.3, 1.3]
+      },
+      {
+        offset: 0.6,
+        scale: [1, 1]
+      },
+      {
+        offset: 0.8,
+        scale: [1.3, 1.3]
+      },
+      {
+        offset: 1,
+        scale: [1, 1]
+      },
 
     ], 1000, function () {
       this.setData({
-        ['asp1.protagonistSplit']: true
+        ['p1AnimationCls.protagonistSplit']: ''
       });
       this.clearAnimation('.protagonist-split', null, function () {
         console.log("= [ani] .protagonist-split animation")
@@ -378,26 +383,23 @@ Page({
   },
 
   animateP1Bottom: function () {
-    const that = this;
     this.animate('.page-1 .bottom', [{
-      ease: 'ease-out',
-      opacity: 0,
-      translateY: 72
-    },
-    {
-      ease: 'ease-out',
-      opacity: 1,
-      translateY: 0
-    }
+        ease: 'ease-out',
+        opacity: 0,
+        translateY: 72
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0
+      }
     ], 1600, function () {
       this.setData({
-        ['asp1.bottom']: true
+        ['p1AnimationCls.bottom']: '',
+        bottomReady: true
       });
       this.clearAnimation('.bottom', null, function () {
         console.log("= [ani] .bottom animation");
-        that.setData({
-          bottomReady: true
-        });
       })
     }.bind(this));
   },
