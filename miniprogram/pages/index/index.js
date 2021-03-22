@@ -38,6 +38,18 @@ Page({
       protagonistSplit: notAnimatedCls,
       bottom: notAnimatedCls
     },
+    p2AnimationCls: {
+      bgRect: notAnimatedCls,
+      logo: notAnimatedCls,
+      inviteYou: notAnimatedCls,
+      protagonist: notAnimatedCls,
+      protagonistSplit: notAnimatedCls,
+      time: notAnimatedCls,
+      address: notAnimatedCls,
+      weddingEn: notAnimatedCls,
+      weddingCn: notAnimatedCls,
+      bottom: notAnimatedCls
+    },
 
     // loading
     assetMgm: {
@@ -267,25 +279,36 @@ Page({
 
   startAnimationChain1: function () {
     console.log('= [ani] start animation chain#1');
-    const that = this;
 
-    that.animateP1MainBgImg();
-    that.animateP1Top1();
+    this.animateP1MainBgImg();
+    this.animateP1Top1();
     setTimeout(this.animateP1Top2, 800);
     setTimeout(this.animateP1MainBgRect, 1600);
     setTimeout(this.animateP1Protagonist, 1600);
-    setTimeout(this.animateP1Bottom, 2800);
+    setTimeout(this.animateBottom, 2800, 1);
     setTimeout(this.animateP1ProtagonistName, 3000);
     setTimeout(this.animateP1ProtagonistSplit, 3000);
   },
 
   startAnimationChain2: function () {
     console.log('= [ani] start animation chain#2');
+
+    this.animateP2Logo();
+    this.animateP2BgRect()
+    this.animateP2InviteYou()
+    this.animateP2Protagonist()
+    this.animateP2ProtagonistSplit()
+    this.animateP2Time();
+    this.animateP2Address();
+    this.animateP2WeddingEn()
+    this.animateP2WeddingCn()
+    this.animateBottom(2)
   },
 
   animateP1MainBgImg: function () {
-    this.animate('.page-1 .main-bg-img', [{
-        ease: 'ease-out',
+    const selector = '.page-1 .main-bg-img';
+    this.animate(selector, [{
+        ease: 'ease-in',
         opacity: 0,
       },
       {
@@ -296,14 +319,15 @@ Page({
       this.setData({
         ['p1AnimationCls.bgImg']: ''
       });
-      this.clearAnimation('.main-bg-img', null, function () {
-        console.log("= [ani] .main-bg-img animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
   animateP1Top1: function () {
-    this.animate('.page-1 .top-content-1', [{
+    const selector = '.page-1 .top-content-1';
+    this.animate(selector, [{
         opacity: 0,
         translateY: 40,
       },
@@ -315,14 +339,15 @@ Page({
       this.setData({
         ['p1AnimationCls.top1']: ''
       });
-      this.clearAnimation('.top-content-1', null, function () {
-        console.log("= [ani] .top-content-1 animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
   animateP1Top2: function () {
-    this.animate('.page-1 .top-content-2', [{
+    const selector = '.page-1 .top-content-2';
+    this.animate(selector, [{
         opacity: 0,
         translateY: 40,
       },
@@ -334,14 +359,15 @@ Page({
       this.setData({
         ['p1AnimationCls.top2']: ''
       });
-      this.clearAnimation('.top-content-2', null, function () {
-        console.log("= [ani] .top-content-2 animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
   animateP1MainBgRect: function () {
-    this.animate('.page-1 .main-bg--rect', [{
+    const selector = '.page-1 .main-bg--rect';
+    this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
         translateY: 40,
@@ -357,14 +383,15 @@ Page({
       this.setData({
         ['p1AnimationCls.bgRect']: ''
       });
-      this.clearAnimation('.main-bg--rect', null, function () {
-        console.log("= [ani] .main-bg--rect animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
   animateP1Protagonist: function () {
-    this.animate('.page-1 .protagonist', [{
+    const selector = '.page-1 .protagonist'
+    this.animate(selector, [{
         ease: 'ease-out',
         offset: 0,
         opacity: 0,
@@ -379,14 +406,15 @@ Page({
       this.setData({
         ['p1AnimationCls.protagonist']: ''
       });
-      this.clearAnimation('.protagonist', null, function () {
-        console.log("= [ani] .protagonist animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
   animateP1ProtagonistName: function () {
-    this.animate('.page-1 .protagonist-name', [{
+    const selector = '.page-1 .protagonist-name';
+    this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
       },
@@ -398,14 +426,15 @@ Page({
       this.setData({
         ['p1AnimationCls.protagonistName']: ''
       });
-      this.clearAnimation('.protagonist-name', null, function () {
-        console.log("= [ani] .protagonist-name animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
   animateP1ProtagonistSplit: function () {
-    this.animate('.page-1 .protagonist-split', [{
+    const selector = '.page-1 .protagonist-split';
+    this.animate(selector, [{
         offset: 0,
         opacity: 0,
       },
@@ -434,14 +463,15 @@ Page({
       this.setData({
         ['p1AnimationCls.protagonistSplit']: ''
       });
-      this.clearAnimation('.protagonist-split', null, function () {
-        console.log("= [ani] .protagonist-split animation")
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
       })
     }.bind(this));
   },
 
-  animateP1Bottom: function () {
-    this.animate('.page-1 .bottom', [{
+  animateBottom: function (page) {
+    const selector = `.page-${page} .bottom`;
+    this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
         translateY: 72
@@ -453,11 +483,191 @@ Page({
       }
     ], 1600, function () {
       this.setData({
-        ['p1AnimationCls.bottom']: '',
+        [`p${page}AnimationCls.bottom`]: '',
         bottomReady: true
       });
-      this.clearAnimation('.bottom', null, function () {
-        console.log("= [ani] .bottom animation");
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`)
+      })
+    }.bind(this));
+  },
+
+  animateP2Logo: function () {
+    const selector = '.page-2 .logo-container';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-in',
+        opacity: 1,
+      }
+    ], 400, function () {
+      this.setData({
+        ['p2AnimationCls.logo']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2BgRect: function () {
+    const selector = '.page-2 .container--outside';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 800, function () {
+      this.setData({
+        ['p2AnimationCls.bgRect']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2InviteYou: function () {
+    const selector = '.page-2 .invite-you';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.inviteYou']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2Protagonist: function () {
+    const selector = '.page-2 .protagonist';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.protagonist']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2ProtagonistSplit: function () {
+    const selector = '.page-2 .protagonist-split';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.protagonistSplit']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2Time: function () {
+    const selector = '.page-2 >>> .time';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.time']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2Address: function () {
+    const selector = '.page-2 >>> .address';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.address']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2WeddingEn: function () {
+    const selector = '.page-2 .wedding--en';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.weddingEn']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP2WeddingCn: function () {
+    const selector = '.page-2 .wedding--cn';
+    this.animate(selector, [{
+        ease: 'ease-in',
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 2000, function () {
+      this.setData({
+        ['p2AnimationCls.weddingCn']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
       })
     }.bind(this));
   },

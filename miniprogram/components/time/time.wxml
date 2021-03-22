@@ -1,5 +1,5 @@
 <!--components/time.wxml-->
-<view class="time">
+<view class="time {{className}}">
   <view class="subject signature">
     Time
   </view>

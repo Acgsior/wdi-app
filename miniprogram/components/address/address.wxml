@@ -1,5 +1,5 @@
 <!--components/address/address.wxml-->
-<view class="address">
+<view class="address {{className}}">
   <view class="subject signature">
     Address
   </view>
