@@ -391,16 +391,32 @@ Page({
 
   animateP1Protagonist: function () {
     const selector = '.page-1 .protagonist'
-    this.animate(selector, [{
-        ease: 'ease-out',
+    this.animate(selector, [
+      {
         offset: 0,
-        opacity: 0,
-        scale3d: [0.3, 0.3, 0.3]
+        easing: 'ease-in',
+        rotateX: 90,
+        opacity: 0
       },
       {
-        ease: 'ease-out',
-        offset: 0.5,
-        opacity: 1
+        offset: 0.4,
+        easing: 'ease-in',
+        rotateX: -20,
+        opacity: 1,
+      },
+      {
+        offset: 0.6,
+        rotateX: 15,
+      },
+
+      {
+        offset: 0.8,
+        rotateX: -10,
+      },
+
+      {
+        offset: 1,
+        rotateX: 0,
       }
     ], 1600, function () {
       this.setData({
