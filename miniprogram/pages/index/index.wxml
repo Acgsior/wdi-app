@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<!-- FIXME debounced to hide spinning state -->
 <spin wx:if="{{!assetMgm.loaded}}" spinning="{{!assetMgm.loaded}}" percent="{{assetMgm.percent}}" />
 
 <swiper class="page-swiper" vertical="{{true}}" easing-function="easeInOutCubic" bindchange="handlePageChange"

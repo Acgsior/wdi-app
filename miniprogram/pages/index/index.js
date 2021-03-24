@@ -51,6 +51,13 @@ Page({
       weddingCn: notAnimatedCls,
       bottom: notAnimatedCls
     },
+    p3AnimationCls: {
+      
+    },
+    p4AnimationCls: {
+
+    },
+
 
     // loading
     assetMgm: {
