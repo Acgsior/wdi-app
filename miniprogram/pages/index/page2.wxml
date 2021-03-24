@@ -36,6 +36,7 @@
           <view class="wedding--en futura {{p2AnimationCls['weddingEn']}}">
             WEDDING INVITATION
           </view>
+          <view class="wedding--split {{p2AnimationCls['weddingSplit']}}" />
           <view class="wedding--cn {{p2AnimationCls['weddingCn']}}">
             新婚典礼
           </view>
