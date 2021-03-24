@@ -1,16 +1,16 @@
 <view class="page page-4">
   <view class="map-container">
-    <view class="map-container--">
+    <view class="map-container--inside">
       <map id="hotelMap" class="map" latitude="{{map.latitude}}" longitude="{{map.longitude}}" markers="{{map.markers}}"
         show-location />
     </view>
   </view>
-  <time />
-  <address />
-  <view class="blessing">
+  <time className="{{p4AnimationCls['time']}}" />
+  <address className="{{p4AnimationCls['address']}}" />
+  <view class="blessing {{p4AnimationCls['blessing']}}">
     分享我们的幸福
   </view>
-  <view class="bottom">
+  <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}} {{p4AnimationCls['bottom']}}">
     <bottomsquare />
   </view>
 </view>

@@ -3,6 +3,7 @@
 }
 
 .page-4 .map-container--inside {
+  position: relative;
   padding: 8rpx;
   border: 2rpx solid var(--main-gold-color);
   border-radius: 4rpx;

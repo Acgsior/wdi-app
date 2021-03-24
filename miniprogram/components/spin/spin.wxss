@@ -27,13 +27,13 @@
   display: flex;
 }
 
-.spin-text,
 .spin-percent {
   color: var(--main-gold-color);
   font-size: 48rpx;
   font-weight: 600;
   letter-spacing: 2rpx;
   z-index: 101;
+  white-space: nowrap;
 }
 
 .spin-container {

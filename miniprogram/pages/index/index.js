@@ -1,10 +1,5 @@
 //index.js
 import assetUtils from '../../utils/assetUtils';
-import animationUtils from '../../utils/animationUtils';
-
-const {
-  pushIfAbsent
-} = animationUtils;
 
 const notAnimatedCls = 'not-animated';
 
@@ -52,10 +47,13 @@ Page({
       bottom: notAnimatedCls
     },
     p3AnimationCls: {
-      
+
     },
     p4AnimationCls: {
-
+      time: notAnimatedCls,
+      address: notAnimatedCls,
+      blessing: notAnimatedCls,
+      bottom: notAnimatedCls
     },
 
 
@@ -84,7 +82,7 @@ Page({
         width: 50,
         height: 50
       }]
-    },
+    }
   },
 
   onReady: function () {
@@ -187,6 +185,11 @@ Page({
       }
       case 1: {
         this.startAnimationChain2();
+        break;
+      }
+      case 3: {
+        this.startAnimationChain4();
+        // FIXME createMapContext then openMapApp to guide
         break;
       }
     }
@@ -313,6 +316,17 @@ Page({
     setTimeout(this.animateP2Address, 1400);
     setTimeout(this.animateBottom, 2100, 2);
   },
+
+  startAnimationChain4: function () {
+    console.log('= [ani] start animation chain#4');
+
+    this.animateP4Time();
+    setTimeout(this.animateP4Address, 400);
+    setTimeout(this.animateP4Blessing, 600);
+    setTimeout(this.animateBottom, 1000, 4);
+  },
+
+  // --- Animation for Page#1 --- //
 
   animateP1MainBgImg: function () {
     const selector = '.page-1 .main-bg-img';
@@ -499,6 +513,8 @@ Page({
     }.bind(this));
   },
 
+  // --- Animation for Page#2 --- //
+
   animateP2Logo: function () {
     const selector = '.page-2 .logo-container';
     this.animate(selector, [{
@@ -579,6 +595,7 @@ Page({
     }.bind(this));
   },
 
+  // FIXME add heartbeat animation loop for heart icon
   animateP2ProtagonistSplit: function () {
     const selector = '.page-2 .protagonist-split';
     this.animate(selector, [{
@@ -716,6 +733,73 @@ Page({
     ], 1000, function () {
       this.setData({
         ['p2AnimationCls.weddingCn']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  // --- Animation for Page#4 --- //
+
+  animateP4Time: function () {
+    const selector = '.page-4 >>> .time';
+    this.animate(selector, [{
+        ease: 'ease-out',
+        opacity: 0,
+        translateY: -80
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0
+      }
+    ], 700, function () {
+      this.setData({
+        ['p4AnimationCls.time']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP4Address: function () {
+    const selector = '.page-4 >>> .address';
+    this.animate(selector, [{
+        ease: 'ease-out',
+        opacity: 0,
+        translateY: -80
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0
+      }
+    ], 700, function () {
+      this.setData({
+        ['p4AnimationCls.address']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP4Blessing: function () {
+    const selector = '.page-4 .blessing';
+    this.animate(selector, [{
+      opacity: 0,
+      scale3d: [0.2, 0.2, 0.2]
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      scale3d: [1, 1, 1]
+    }
+    ], 1000, function () {
+      this.setData({
+        ['p4AnimationCls.blessing']: ''
       });
       this.clearAnimation(selector, null, function () {
         console.log(`= [ani] ${selector} animation`);
