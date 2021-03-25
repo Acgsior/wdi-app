@@ -1,5 +1,48 @@
+.page.page-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .page-3 .container {
   position: relative;
-  height: 900rpx;
-  padding: 160rpx 96rpx 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-3 .photo1-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.page-3 .photo1 image {
+  height: 800rpx;
+  width: 450rpx;
+  z-index: 10;
+  margin-top: 10rpx;
+}
+
+.page-3 .photo1-shadow {
+  position: absolute;
+  height: 800rpx;
+  width: 450rpx;
+  top: 40rpx;
+  left: 40rpx;
+  border: 8rpx solid var(--main-gold-color);
+}
+
+.page-3 .photo1-text--cn {
+  z-index: 11;
+  font-size: 48rpx;
+  line-height: 56rpx;
+  color: var(--main-gold-color);
+}
+
+.page-3 .photo1-text--en {
+  z-index: 11;
+  font-size: 28rpx;
+  line-height: 34rpx;
+  color: var(--main-gold-color);
 }

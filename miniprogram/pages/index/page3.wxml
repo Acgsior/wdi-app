@@ -1,24 +1,29 @@
 <view class="page page-3">
   <view class="container">
-    <view class="photo1">
-      <image src="../../images/1.png" alt="">
-        <view class="phone1-shadow"></view>
-        <view class="photo1-text--cn"></view>
-        <view class="photo1-text--en"></view>
+    <view class="photo photo1 {{p3PhotoIndex === 0 ? '' : 'hidden'}}">
+      <view class="photo1-text--cn">她在等待</view>
+      <view class="photo1-text--en">She always remembers that day</view>
+      <view class="photo1-content">
+        <image src="../../images/1.jpg" alt="" />
+        <view class="photo1-shadow"></view>
+      </view>
     </view>
-    <view class="photo2">
-      <image src="../../images/2.png" alt="">
-        <view class="photo2-shadow"></view>
-        <view class="photo2-text--cn"></view>
-        <view class="photo2-text--en"></view>
+    <view class="photo photo2 {{p3PhotoIndex === 1 ? '' : 'hidden'}}">
+      <image src="../../images/2.jpg" alt="" />
+      <view class="photo2-shadow"></view>
+      <view class="photo2-text--cn">他在寻找</view>
+      <view class="photo2-text--en">He always left her the best thing</view>
     </view>
-    <view class="photo3">
-      <image src="../../image/3.png" alt="">
-        <view class="cover-rect">
-          <view class="cover-rect--indside"></view>
-        </view>
-        <view class="photo3-text--cn"></view>
-        <view class="photo3-text--en"></view>
+    <view class="photo photo3 {{p3PhotoIndex === 2 ? '' : 'hidden'}}">
+      <image src="../../image/3.jpg" alt="" />
+      <view class="cover-rect">
+        <view class="cover-rect--indside"></view>
+      </view>
+      <view class="photo3-text--cn">直到他们在一起</view>
+      <view class="photo3-text--en">They‘d be together forever.</view>
     </view>
+  </view>
+  <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}} {{p3AnimationCls['bottom']}}">
+    <bottomsquare />
   </view>
 </view>

@@ -56,6 +56,8 @@ Page({
       bottom: notAnimatedCls
     },
 
+    p3PhotoIndex: 0,
+
 
     // loading
     assetMgm: {

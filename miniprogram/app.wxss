@@ -12,3 +12,7 @@ page {
 .not-animated {
   opacity: 0;
 }
+
+.hidden {
+  display: none;
+}
