@@ -17,12 +17,12 @@
       <view class="photo-text--en">He always left her the best thing</view>
     </view>
     <view class="photo-container {{p3PhotoIndex === 2 ? '' : 'hidden'}}">
-      <image src="../../image/3.jpg" alt="" />
-      <view class="cover-rect">
-        <view class="cover-rect--indside"></view>
+      <view class="photo-text--cn">直到他们在一起</view>
+      <view class="photo-text--en">They‘d be together forever.</view>
+      <view class="photo-content">
+        <image class="photo--3" src="../../images/3.jpg" alt="" />
       </view>
-      <view class="photo3-text--cn">直到他们在一起</view>
-      <view class="photo3-text--en">They‘d be together forever.</view>
+      <view class="bottom-border--3"></view>
     </view>
   </view>
   <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}} {{p3AnimationCls['bottom']}}">

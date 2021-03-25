@@ -18,6 +18,7 @@
 }
 
 .page-3 .photo-text--cn {
+  margin-bottom: 8rpx;
   font-size: 42rpx;
   line-height: 48rpx;
 }
@@ -44,7 +45,7 @@
 }
 
 .page-3 .photo--1 {
-  margin-top: 16rpx;
+  margin-top: 32rpx;
   z-index: 10;
 }
 
@@ -55,7 +56,7 @@
 }
 
 .page-3 .photo--2 {
-  margin: 40rpx 0 16rpx 40rpx;
+  margin: 40rpx 0 32rpx 40rpx;
   z-index: 10;
 }
 
@@ -63,5 +64,17 @@
   position: absolute;
   top: 0;
   left: 0;
+  background-color: var(--main-gold-color);
+}
+
+.page-3 .photo-content image.photo--3 {
+  margin: 32rpx auto 48rpx;
+  z-index: 10;
+  width: 572rpx;
+}
+
+.page-3 .bottom-border--3 {
+  width: 384rpx;
+  height: 16rpx;
   background-color: var(--main-gold-color);
 }
