@@ -1,19 +1,24 @@
 <view class="page page-3">
   <view class="container">
-    <view class="center-bg-rect">
-      <view class="center-bg-rect--inside"></view>
+    <view class="photo1">
+      <image src="../../images/1.png" alt="">
+        <view class="phone1-shadow"></view>
+        <view class="photo1-text--cn"></view>
+        <view class="photo1-text--en"></view>
     </view>
-    <view class="horizon-img">
-      <image src="../../images/hoz.png"></image>
+    <view class="photo2">
+      <image src="../../images/2.png" alt="">
+        <view class="photo2-shadow"></view>
+        <view class="photo2-text--cn"></view>
+        <view class="photo2-text--en"></view>
     </view>
-    <view class="horizon-bg-rect"></view>
-    <view class="vertical-img">
-      <image src="../../images/ver.png"></image>
+    <view class="photo3">
+      <image src="../../image/3.png" alt="">
+        <view class="cover-rect">
+          <view class="cover-rect--indside"></view>
+        </view>
+        <view class="photo3-text--cn"></view>
+        <view class="photo3-text--en"></view>
     </view>
-    <view class="vertical-bg-rect"></view>
-    <view class="bottom-bg-rect"></view>
-  </view>
-  <view class="bottom">
-    <bottomsquare />
   </view>
 </view>

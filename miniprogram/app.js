@@ -1,3 +1,6 @@
+const totalAsset = 5;
+
+
 //app.js
 App({
   onLaunch: function () {
@@ -60,6 +63,7 @@ App({
       success: (res) => {
         console.log('= [window] window height', res.windowHeight);
         const windowHeight = res.windowHeight;
+        // iphone 6 mini-app screen height 603
         if (windowHeight > 603) {
           that.globalData.extraHeight = windowHeight - 603;
         } else {

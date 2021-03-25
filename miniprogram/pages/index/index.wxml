@@ -4,18 +4,18 @@
 
 <swiper class="page-swiper" vertical="{{true}}" easing-function="easeInOutCubic" bindchange="handlePageChange"
   bindanimationfinish="handlePageChangeFinish">
-  <swiper-item>
+  <!-- <swiper-item>
     <include src="page1.wxml" />
   </swiper-item>
   <swiper-item>
     <include src="page2.wxml" />
-  </swiper-item>
+  </swiper-item> -->
   <swiper-item>
     <include src="page3.wxml" />
   </swiper-item>
-  <swiper-item>
+  <!-- <swiper-item>
     <include src="page4.wxml" />
-  </swiper-item>
+  </swiper-item> -->
 </swiper>
 
 <include src="bgm.wxml" />

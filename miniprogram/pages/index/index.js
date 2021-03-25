@@ -10,7 +10,7 @@ const app = getApp();
 const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
 
 // FIXME update when page#3 photograph source is confirmed
-const assetTotal = 2;
+const assetTotal = 0;
 
 Page({
   data: {
@@ -20,7 +20,7 @@ Page({
     bottomReady: false,
 
     // swiper page index
-    pageIndex: 0,
+    pageIndex: 2,
 
     // animation class name of page#1
     p1AnimationCls: {
