@@ -166,10 +166,9 @@ Page({
     const {
       detail: {
         current,
-        source
       }
     } = e;
-    console.log('= [swiper] handle page change');
+    console.log(`= [swiper] handle page change to page#${current}`);
   },
 
   handlePageChangeFinish: function (e) {
@@ -178,9 +177,13 @@ Page({
         current
       }
     } = e;
-    console.log('= [swiper] handle page change finish');
+    console.log(`= [swiper] handle page change to page#${current} finish`);
 
-    switch (current) {
+    this.startAnimationChain(current);
+  },
+
+  startAnimationChain(page) {
+    switch (page) {
       case 0: {
         this.startAnimationChain1();
         break;
@@ -203,13 +206,18 @@ Page({
       ...acc,
       [cur]: notAnimatedCls
     }), {});
-    this.setData({
-      [prevPageAniKey]: nextAnimationClassData
-    });
 
-    // FIXME combine setData
+    // FIXME test OPTION#2 to clear animations
+    switch(this.data.pageIndex) {
+      case 0: {
+        this.clearAnimationChain1();
+        break;
+      }
+    }
+
     this.setData({
-      pageIndex: current
+      [prevPageAniKey]: nextAnimationClassData,
+      pageIndex: page
     });
 
     // FIXME need think about what if animation do not completed?
@@ -232,7 +240,7 @@ Page({
         }
       })
 
-      this.startAnimationChain1();
+      this.startAnimationChain(this.data.pageIndex);
     } else {
       that.setData({
         assetMgm: {
@@ -326,6 +334,17 @@ Page({
     setTimeout(this.animateP4Address, 400);
     setTimeout(this.animateP4Blessing, 600);
     setTimeout(this.animateBottom, 1000, 4);
+  },
+
+  clearAnimationChain1: function() {
+    this.clearAnimation('.page-1 .main-bg-img', null);
+    this.clearAnimation('.page-1 .top-content-1', null);
+    this.clearAnimation('.page-1 .top-content-2', null);
+    this.clearAnimation('.page-1 .main-bg--rect', null);
+    this.clearAnimation('.page-1 .protagonist', null);
+    this.clearAnimation('.page-1 .bottom', null);
+
+    console.log('= [ani] clear all animation chain#1');
   },
 
   // --- Animation for Page#1 --- //
