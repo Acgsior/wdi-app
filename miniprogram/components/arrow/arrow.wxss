@@ -1,0 +1,14 @@
+/* components/arrow/arrow.wxss */
+.arrow .arrow-body {
+  width: 0;
+  height: 0;
+  border: 48rpx solid;
+}
+
+.arrow--right .arrow-body {
+  border-color: transparent transparent transparent var(--main-gold-color);
+}
+
+.arrow--left .arrow-body {
+  border-color: transparent var(--main-gold-color) transparent transparent;
+}

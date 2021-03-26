@@ -78,3 +78,18 @@
   height: 16rpx;
   background-color: var(--main-gold-color);
 }
+
+.page-3 .arrow {
+  position: absolute;
+  width: 80rpx;
+  top: 40%;
+  z-index: 12;
+}
+
+.page-3 .prev-arrow {
+  left: 8rpx;
+}
+
+.page-3 .next-arrow {
+  right: 8rpx;
+}

@@ -1,4 +1,6 @@
 <view class="page page-3">
+  <arrow className="prev-arrow {{p3PhotoIndex > 0 ? '' : 'hidden'}}" direction="left"></arrow>
+  <arrow className="next-arrow {{p3PhotoIndex < 2 ? '' : hidden}}" direction="right"></arrow>
   <view class="container">
     <view class="photo-container {{p3PhotoIndex === 0 ? '' : 'hidden'}}">
       <view class="photo-text--cn">她在等待</view>

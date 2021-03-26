@@ -1,0 +1,4 @@
+<!--components/arrow/arrow.wxml-->
+<view class="arrow arrow--{{direction}} {{className}}">
+  <view class="arrow-body"></view>
+</view>

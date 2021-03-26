@@ -4,6 +4,7 @@
     "bottomsquare": "/components/bottomsquare/bottomsquare",
     "time": "/components/time/time",
     "address": "/components/address/address",
-    "spin": "/components/spin/spin"
+    "spin": "/components/spin/spin",
+    "arrow": "/components/arrow/arrow"
   }
 }

@@ -56,7 +56,7 @@ Page({
       bottom: notAnimatedCls
     },
 
-    p3PhotoIndex: 2,
+    p3PhotoIndex: 1,
 
 
     // loading
