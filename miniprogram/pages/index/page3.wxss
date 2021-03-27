@@ -57,8 +57,7 @@
 
 .page-3 .photo-shadow--1 {
   position: absolute;
-  top: 40rpx;
-  left: 40rpx;
+  transform: translate(40rpx, 40rpx);
 }
 
 .page-3 .photo--2 {
@@ -68,8 +67,9 @@
 
 .page-3 .photo-shadow--2 {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 40rpx;
+  left: 40rpx;
+  transform: translate(-40rpx, -40rpx);
   background-color: var(--main-gold-color);
 }
 
@@ -89,9 +89,9 @@
 
 .page-3 .top-border--heart {
   width: 32rpx;
-  height: 28rpx;
+  height: 32rpx;
   position: absolute;
-  top: -28rpx;
+  top: -32rpx;
   right: 0;
 }
 
@@ -103,11 +103,13 @@
 }
 
 .page-3 .prev-arrow {
-  left: -28rpx;
+  left: 0;
+  transform: translateX(-28rpx);
 }
 
 .page-3 .next-arrow {
-  right: -8rpx;
+  right: 0;
+  transform: translateX(-8rpx);
 }
 
 .page-3 .bottom {
