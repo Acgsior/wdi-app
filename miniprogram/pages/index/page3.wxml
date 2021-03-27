@@ -4,7 +4,7 @@
   <view class="container">
     <view class="photo-container {{p3PhotoIndex === 0 ? '' : 'hidden'}}">
       <view class="photo-content">
-        <image class="photo--1" src="../../images/1.jpg" alt="" />
+        <image class="photo--1" src="../../images/1.png" alt="" />
         <view class="photo-shadow photo-shadow--1"></view>
       </view>
       <view class="photo-text--cn">她在等待</view>
@@ -13,7 +13,7 @@
     <view class="photo-container {{p3PhotoIndex === 1 ? '' : 'hidden'}}">
       <view class="photo-content">
         <view class="photo-shadow photo-shadow--2"></view>
-        <image class="photo--2" src="../../images/2.jpg" alt="" />
+        <image class="photo--2" src="../../images/2.png" alt="" />
       </view>
       <view class="photo-text--cn">他在寻找</view>
       <view class="photo-text--en">He always left her the best thing</view>
@@ -23,7 +23,7 @@
         <image class="top-border--heart" src="../../images/heart.png" />
       </view>
       <view class="photo-content">
-        <image class="photo--3" src="../../images/3.jpg" alt="" />
+        <image class="photo--3" src="../../images/3.png" alt="" />
       </view>
       <view class="photo-text--cn">直到他们在一起</view>
       <view class="photo-text--en">They‘d be together forever.</view>

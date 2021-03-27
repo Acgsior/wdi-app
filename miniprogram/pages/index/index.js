@@ -65,7 +65,7 @@ Page({
       p4: [],
     },
 
-    p3PhotoIndex: 1,
+    p3PhotoIndex: 0,
 
     // loading
     assetMgm: {
@@ -88,9 +88,9 @@ Page({
         latitude: 30.71899975983765,
         longitude: 103.82923803966423,
         title: '云豪假期酒店',
-        iconPath: '../../images/location.png',
-        width: 50,
-        height: 50
+        iconPath: '../../images/heart.png',
+        width: 32,
+        height: 32
       }]
     }
   },
