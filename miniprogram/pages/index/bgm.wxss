@@ -2,7 +2,7 @@
   position: fixed;
   top: 64rpx;
   right: 48rpx;
-  z-index: 1000;
+  z-index: 2001;
 }
 
 .bgm .playing,

@@ -265,6 +265,7 @@ Page({
   checkAssetLoadState: function (that) {
     const loaded = that.data.assetMgm.loadedCount >= assetTotal
     if (loaded) {
+      console.log('= [asset] asset load completed');
       if (that.data.assetMgm.intervalId >= 0) {
         clearInterval(that.data.assetMgm.intervalId);
       }
@@ -273,7 +274,8 @@ Page({
           ...that.data.assetMgm,
           percent: 100
         }
-      }, function() {
+      }, function () {
+        console.log('= [asset] hide spin transition animation start');
         const selector = '.container >>> .spin';
         that.animate(selector, [{
             ease: 'ease-out',
@@ -284,6 +286,7 @@ Page({
             opacity: 0,
           }
         ], 1000, function () {
+          console.log('= [asset] hide spin and start animation chain');
           that.setData({
             assetMgm: {
               ...that.data.assetMgm,
@@ -1192,11 +1195,10 @@ Page({
   },
 
   onShareAppMessage: function (res) {
-    // FIXME need update title and img as current title text is too long which would be omitted
     return {
-      title: '04.24的婚礼电子请柬',
+      title: '4月24日的邀请函',
       path: '/page/index/index',
-      imageUrl: 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/share-cover.png'
+      imageUrl: '../../images/share.jpg'
     }
   },
 
