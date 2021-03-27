@@ -8,7 +8,8 @@
         <view class="invite-you {{p2AnimationCls['inviteYou']}}">
           诚邀您及家人莅临
         </view>
-        <view class="protagonist {{p2AnimationCls['protagonist']}}" style="margin-bottom: {{48 + 1.6 * extraHeight}}rpx">
+        <view class="protagonist {{p2AnimationCls['protagonist']}}"
+          style="margin-bottom: {{48 + 1.6 * extraHeight}}rpx">
           <view class="bridegroom">
             <view class="protagonist-name">
               覃一斐
@@ -18,8 +19,7 @@
             </view>
           </view>
           <view class="protagonist-split {{p2AnimationCls['protagonistSplit']}}">
-            <image
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAMAAABo+94fAAAAP1BMVEUAAADRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXe/L9lSAAAAFHRSTlMATet5WKU3KN3czcWunJaGEqg8L8z42FYAAABuSURBVBjTbc9JDoMwDEDRb2dihra5/1kbkSAQ8VtZX17YFGkddXIUbtJxTZx8Ps0w18lTxNyEkJsvoLmjINkg7Fbe2ay84azs+Fk5wdLXBTj6fIBxotzfP3ga6XarOFxxiDx9ag28uPpGR1SFyx+UbRRjtQ2MRQAAAABJRU5ErkJggg==" />
+            <image src="../../images/heart.png" />
           </view>
           <view class="bride">
             <view class="protagonist-name">

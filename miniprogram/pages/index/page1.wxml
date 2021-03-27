@@ -12,7 +12,7 @@
       <view class="main-bg--rect-inside" />
     </view>
     <view class="main-bg-img {{p1AnimationCls['bgImg']}}">
-      <image src="../../images/bouquet.png" style="height: {{836 + 0.5 * extraHeight}}rpx"
+      <image src="../../images/bouquet-light.jpg" style="height: {{836 + 0.5 * extraHeight}}rpx"
         bindload="notifyAssetLoaded" />
     </view>
     <view class="protagonist {{p1AnimationCls['protagonist']}}">
