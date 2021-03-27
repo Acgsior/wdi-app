@@ -1,10 +1,10 @@
 <!--index.wxml-->
-<view class="{{isIPX ? 'container--x' : ''}}">
+<view class="container {{isIPX ? 'container--x' : ''}}">
   <!-- FIXME debounced to hide spinning state -->
   <spin wx:if="{{!assetMgm.loaded}}" spinning="{{!assetMgm.loaded}}" percent="{{assetMgm.percent}}" />
 
   <swiper class="page-swiper" vertical="{{true}}" easing-function="easeInOutCubic" bindchange="handlePageChange"
-    bindanimationfinish="handlePageChangeFinish">
+  bindanimationfinish="handlePageChangeFinish">
     <swiper-item>
       <include src="page1.wxml" />
     </swiper-item>

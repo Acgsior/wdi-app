@@ -271,13 +271,29 @@ Page({
       that.setData({
         assetMgm: {
           ...that.data.assetMgm,
-          intervalId: -1,
-          loaded: true,
           percent: 100
         }
-      })
-
-      this.startAnimationChain(this.data.pageIndex);
+      }, function() {
+        const selector = '.container >>> .spin';
+        that.animate(selector, [{
+            ease: 'ease-out',
+            opacity: 1,
+          },
+          {
+            ease: 'ease-out',
+            opacity: 0,
+          }
+        ], 1000, function () {
+          that.setData({
+            assetMgm: {
+              ...that.data.assetMgm,
+              intervalId: -1,
+              loaded: true,
+            }
+          });
+          that.startAnimationChain(that.data.pageIndex);
+        }.bind(that));
+      });
     } else {
       that.setData({
         assetMgm: {
