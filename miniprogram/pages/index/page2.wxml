@@ -18,7 +18,7 @@
               新郎
             </view>
           </view>
-          <view class="protagonist-split {{p2AnimationCls['protagonistSplit']}}">
+          <view class="protagonist-split heart-beat {{p2AnimationCls['protagonistSplit']}}">
             <image src="../../images/heart.png" />
           </view>
           <view class="bride">

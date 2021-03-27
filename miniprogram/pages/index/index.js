@@ -6,10 +6,9 @@ const notAnimatedCls = 'not-animated';
 const app = getApp();
 
 // FIXME need check why fileid do not work
-const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
-// const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
+// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
+const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
 
-// FIXME update when page#3 photograph source is confirmed
 const assetTotal = 0;
 
 Page({
@@ -67,8 +66,7 @@ Page({
     p4AnimationCls: {
       time: notAnimatedCls,
       address: notAnimatedCls,
-      blessing: notAnimatedCls,
-      bottom: notAnimatedCls
+      blessing: notAnimatedCls
     },
     pageTimeIds: {
       p1: [],
@@ -235,7 +233,6 @@ Page({
       [cur]: notAnimatedCls
     }), {});
 
-    // FIXME test OPTION#2 to clear animations
     if (this.data.pageIndex !== page) {
       switch (this.data.pageIndex) {
         case 0: {
@@ -394,6 +391,7 @@ Page({
     console.log('= [ani] start animation chain#3 - photo@2');
 
     this.animateP3Photo(2);
+    this.animateP3NextArrow();
     this.animateP3PrevArrow();
     const id1 = setTimeout(this.animateP3Shadow2, 600);
     const id2 = setTimeout(this.animateP3Text, 800, 2);
@@ -407,6 +405,7 @@ Page({
     console.log('= [ani] start animation chain#3 - photo@3');
 
     this.animateP3Photo(3);
+    this.animateP3PrevArrow();
     const id1 = setTimeout(this.animateP3Rect3, 600);
     const id2 = setTimeout(this.animateP3Heart3, 1800);
     const id3 = setTimeout(this.animateP3Text, 800, 3);
@@ -422,10 +421,9 @@ Page({
     this.animateP4Time();
     const id1 = setTimeout(this.animateP4Address, 400);
     const id2 = setTimeout(this.animateP4Blessing, 600);
-    const id3 = setTimeout(this.animateBottom, 1000, 4);
 
     this.setData({
-      'pageTimeIds.p4': [id1, id2, id3]
+      'pageTimeIds.p4': [id1, id2]
     });
   },
 
@@ -473,7 +471,7 @@ Page({
   },
 
   clearAnimationChain3Timer: function () {
-    const timeoutIds = this.data.pageTimeIds.p3PhotoIndex;
+    const timeoutIds = this.data.pageTimeIds.p3;
     timeoutIds.forEach(tid => {
       clearTimeout(tid);
     });
@@ -483,15 +481,22 @@ Page({
   },
 
   clearAnimationChain3Photo1: function () {
+    this.clearAnimationChain3Timer();
+
     this.clearAnimation('.page-3 >>> .next-arrow', null);
+    this.clearAnimation('.page-3 >>> .prev-arrow', null);
     this.clearAnimation('.page-3 .photo--1', null);
     this.clearAnimation('.page-3 .photo-text--1', null);
     this.clearAnimation('.page-3 .photo-shadow--1', null);
+    this.clearAnimation('.page-3 .bottom', null);
 
     console.log('= [ani] clear all animation chain#3 photo@1');
   },
 
   clearAnimationChain3Photo2: function () {
+    this.clearAnimationChain3Timer();
+
+    this.clearAnimation('.page-3 >>> .next-arrow', null);
     this.clearAnimation('.page-3 >>> .prev-arrow', null);
     this.clearAnimation('.page-3 .photo--2', null);
     this.clearAnimation('.page-3 .photo-text--2', null);
@@ -501,6 +506,10 @@ Page({
   },
 
   clearAnimationChain3Photo3: function () {
+    this.clearAnimationChain3Timer();
+
+    this.clearAnimation('.page-3 >>> .next-arrow', null);
+    this.clearAnimation('.page-3 >>> .prev-arrow', null);
     this.clearAnimation('.page-3 .photo--3', null);
     this.clearAnimation('.page-3 .photo-text--3', null);
     this.clearAnimation('.page-3 .top-border--heart', null);
@@ -513,7 +522,6 @@ Page({
     this.clearAnimation('.page-4 >>> .time', null);
     this.clearAnimation('.page-4 >>> .address', null);
     this.clearAnimation('.page-4 .blessing', null);
-    this.clearAnimation('.page-4 .bottom', null);
 
     const timeoutIds = this.data.pageTimeIds.p4;
     timeoutIds.forEach(tid => {
@@ -794,35 +802,16 @@ Page({
     }.bind(this));
   },
 
-  // FIXME add heartbeat animation loop for heart icon
   animateP2ProtagonistSplit: function () {
     const selector = '.page-2 .protagonist-split';
     this.animate(selector, [{
-        offset: 0,
         opacity: 0,
       },
       {
-        offset: 0.2,
-        opacity: 1
-      },
-      {
-        offset: 0.4,
-        scale: [1.5, 1.5]
-      },
-      {
-        offset: 0.6,
-        scale: [1, 1]
-      },
-      {
-        offset: 0.8,
-        scale: [1.5, 1.5]
-      },
-      {
-        offset: 1,
-        scale: [1, 1]
-      },
-
-    ], 1000, function () {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 400, function () {
       this.setData({
         ['p2AnimationCls.protagonistSplit']: ''
       });
@@ -1006,13 +995,9 @@ Page({
     const selector = '.page-3 .top-border--3';
     this.animate(selector, [{
         opacity: 0,
-        scaleX: 0,
-        translateX: '100%'
       },
       {
         ease: 'ease-out',
-        scaleX: 1,
-        translateX: 0,
         opacity: 1,
       }
     ], 1200, function () {

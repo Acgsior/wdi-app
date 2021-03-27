@@ -74,8 +74,8 @@
 }
 
 .page-2 .protagonist-split image {
-  width: 24rpx;
-  height: 20rpx;
+  width: 26rpx;
+  height: 26rpx;
 }
 
 .page-2 .wedding {

@@ -11,6 +11,6 @@
     <view class="blessing {{p4AnimationCls['blessing']}}">
       分享我们的幸福
     </view>
-    <square className="square--end"></square>
+    <square className="square--end  "></square>
   </view>
 </view>
