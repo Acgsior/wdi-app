@@ -1,5 +1,11 @@
+.page-4.page {
+  justify-content: space-around;
+}
+
 .page-4 .map-container {
-  padding: 40rpx 20rpx 0;
+  padding: 0 20rpx;
+  margin-bottom: 40rpx;
+  justify-self: flex-start;
 }
 
 .page-4 .map-container--inside {
@@ -11,13 +17,15 @@
 
 .page-4 .map {
   width: 680rpx;
-  height: 560rpx;
   border: 4rpx solid var(--main-gold-color);
   border-radius: 4rpx;
 }
 
-.page-4 .time {
-  margin-top: 80rpx;
+.page-4 .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .page-4 .blessing {
@@ -25,11 +33,9 @@
   text-align: center;
   color: var(--main-blue-color);
   font-size: 66rpx;
-  margin: 56rpx;
+  margin: 60rpx auto 120rpx;
 }
 
-.page-4 .bottom {
-  position: absolute;
-  bottom: 0;
-  left: 47%;
+.page-4 .square--end {
+  margin-bottom: 40rpx;
 }
