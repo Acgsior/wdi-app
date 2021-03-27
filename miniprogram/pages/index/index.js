@@ -6,8 +6,8 @@ const notAnimatedCls = 'not-animated';
 const app = getApp();
 
 // FIXME need check why fileid do not work
-// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
-const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
+const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
+// const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
 
 // FIXME update when page#3 photograph source is confirmed
 const assetTotal = 0;
@@ -178,7 +178,7 @@ Page({
         current,
       }
     } = e;
-    console.log(`= [swiper] handle page change to page#${current}`);
+    console.log(`= [swiper] handle page change to page#${current + 1}`);
   },
 
   handlePageChangeFinish: function (e) {
@@ -187,9 +187,11 @@ Page({
         current
       }
     } = e;
-    console.log(`= [swiper] handle page change to page#${current} finish`);
+    console.log(`= [swiper] handle page change to page#${current + 1} finish`);
 
-    this.startAnimationChain(current);
+    if (this.data.pageIndex !== current) {
+      this.startAnimationChain(current);
+    }
   },
 
   startAnimationChain(page) {
@@ -248,10 +250,6 @@ Page({
         pageIndex: page
       });
     }
-
-    // FIXME need think about what if animation do not completed?
-    // OPTION#1: cancel all setTimeout
-    // OPTION#2: directly call clearAnimation
   },
 
   checkAssetLoadState: function (that) {
@@ -349,15 +347,19 @@ Page({
 
     this.animateP2Logo();
     this.animateP2BgRect()
-    setTimeout(this.animateP2InviteYou, 400);
-    setTimeout(this.animateP2Protagonist, 800);
-    setTimeout(this.animateP2ProtagonistSplit, 1400);
-    setTimeout(this.animateP2Time, 1000);
-    setTimeout(this.animateP2WeddingSplit, 1200);
-    setTimeout(this.animateP2WeddingEn, 1200);
-    setTimeout(this.animateP2WeddingCn, 1200);
-    setTimeout(this.animateP2Address, 1400);
-    setTimeout(this.animateBottom, 2100, 2);
+    const id1 = setTimeout(this.animateP2InviteYou, 400);
+    const id2 = setTimeout(this.animateP2Protagonist, 800);
+    const id3 = setTimeout(this.animateP2ProtagonistSplit, 1400);
+    const id4 = setTimeout(this.animateP2Time, 1000);
+    const id5 = setTimeout(this.animateP2WeddingSplit, 1200);
+    const id6 = setTimeout(this.animateP2WeddingEn, 1200);
+    const id7 = setTimeout(this.animateP2WeddingCn, 1200);
+    const id8 = setTimeout(this.animateP2Address, 1400);
+    const id9 = setTimeout(this.animateBottom, 2100, 2);
+
+    this.setData({
+      'pageTimeIds.p2': [id1, id2, id3, id4, id5, id6, id7, id8, id9]
+    });
   },
 
   startAnimationChain3: function () {
@@ -369,9 +371,13 @@ Page({
     console.log('= [ani] start animation chain#4');
 
     this.animateP4Time();
-    setTimeout(this.animateP4Address, 400);
-    setTimeout(this.animateP4Blessing, 600);
-    setTimeout(this.animateBottom, 1000, 4);
+    const id1 = setTimeout(this.animateP4Address, 400);
+    const id2 = setTimeout(this.animateP4Blessing, 600);
+    const id3 = setTimeout(this.animateBottom, 1000, 4);
+
+    this.setData({
+      'pageTimeIds.p4': [id1, id2, id3]
+    });
   },
 
   clearAnimationChain1: function () {
@@ -394,6 +400,25 @@ Page({
   },
 
   clearAnimationChain2: function () {
+    this.clearAnimation('.page-1 .logo-container', null);
+    this.clearAnimation('.page-1 .container--outside', null);
+    this.clearAnimation('.page-1 .invite-you', null);
+    this.clearAnimation('.page-1 .protagonist', null);
+    this.clearAnimation('.page-1 .protagonist-split', null);
+    this.clearAnimation('.page-1 .page-2 >>> .time', null);
+    this.clearAnimation('.page-1 .page-2 >>> .address', null);
+    this.clearAnimation('.page-1 .page-2 .wedding--split', null);
+    this.clearAnimation('.page-1 .page-2 .wedding--en', null);
+    this.clearAnimation('.page-1 .page-2 .wedding--cn', null);
+    this.clearAnimation('.page-1 .bottom', null);
+
+    const timeoutIds = this.data.pageTimeIds.p2;
+    timeoutIds.forEach(tid => {
+      clearTimeout(tid);
+    });
+    this.setData({
+      'pageTimeIds.p2': []
+    });
 
     console.log('= [ani] clear all animation chain#2');
   },
@@ -404,6 +429,18 @@ Page({
   },
 
   clearAnimationChain4: function () {
+    this.clearAnimation('.page-4 >>> .time', null);
+    this.clearAnimation('.page-4 >>> .address', null);
+    this.clearAnimation('.page-4 .blessing', null);
+    this.clearAnimation('.page-4 .bottom', null);
+
+    const timeoutIds = this.data.pageTimeIds.p4;
+    timeoutIds.forEach(tid => {
+      clearTimeout(tid);
+    });
+    this.setData({
+      'pageTimeIds.p4': []
+    });
 
     console.log('= [ani] clear all animation chain#4');
   },
