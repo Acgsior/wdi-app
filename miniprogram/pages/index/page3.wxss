@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 48rpx;
 }
 
 .page-3 .photo-text--cn,
@@ -39,6 +40,10 @@
 .page-3 .photo-shadow {
   height: 800rpx;
   width: 450rpx;
+}
+
+.page-3 .photo-content image {
+  border: 1rpx solid var(--main-gold-color);
 }
 
 .page-3 .photo-shadow {
@@ -71,7 +76,7 @@
 .page-3 .photo-content image.photo--3 {
   margin: 40rpx auto;
   z-index: 10;
-  width: 572rpx;
+  width: 640rpx;
 }
 
 .page-3 .top-border--3 {

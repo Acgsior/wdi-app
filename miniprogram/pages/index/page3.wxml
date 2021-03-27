@@ -23,7 +23,7 @@
         <image class="top-border--heart" src="../../images/heart.png" />
       </view>
       <view class="photo-content">
-        <image class="photo--3" src="../../images/3.png" alt="" />
+        <image class="photo--3" src="../../images/354.png" alt="" />
       </view>
       <view class="photo-text--cn">直到他们在一起</view>
       <view class="photo-text--en">They‘d be together forever.</view>

@@ -231,15 +231,15 @@ Page({
           break;
         }
         case 1: {
-          this.startAnimationChain2();
+          this.clearAnimationChain2();
           break;
         }
         case 2: {
-          this.startAnimationChain3();
+          this.clearAnimationChain3();
           break;
         }
         case 3: {
-          this.startAnimationChain4();
+          this.clearAnimationChain4();
           // FIXME createMapContext then openMapApp to guide
           break;
         }
