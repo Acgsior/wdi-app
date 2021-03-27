@@ -7,7 +7,7 @@
       INVITATION
     </view>
   </view>
-  <view class="main" style="margin-top: {{0.72 * extraHeight}}rpx">
+  <view class="main" style="margin-top: {{0.48 * extraHeight}}rpx">
     <view class="main-bg--rect {{p1AnimationCls['bgRect']}}">
       <view class="main-bg--rect-inside" />
     </view>

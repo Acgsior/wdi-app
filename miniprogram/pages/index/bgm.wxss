@@ -1,11 +1,13 @@
-.bgm--fixed {
+.bgm {
   position: fixed;
   top: 64rpx;
   right: 48rpx;
-  z-index: 200;
+  z-index: 1000;
 }
 
-.bgm--fixed image {
+.bgm .playing,
+.bgm .not-play {
+  display: block;
   width: 64rpx;
   height: 64rpx;
 }
@@ -20,6 +22,6 @@
   }
 }
 
-.bgm--fixed .playing {
+.bgm .playing {
   animation: rotate-loop 5s linear infinite;
 }

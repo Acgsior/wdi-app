@@ -63,7 +63,7 @@ App({
       success: (res) => {
         console.log('= [system] system info', res);
         console.log('= [system] device model', res.model);
-        console.log('= [window] device pixel ratio', res.devicePixelRatio);
+        console.log('= [system] device pixel ratio', res.devicePixelRatio);
 
         that.globalData.ratio = res.devicePixelRatio;
 
@@ -77,11 +77,13 @@ App({
 
         const windowHeight = res.windowHeight;
         // iphone 6 mini-app screen height 603
+        let extraHeight = 0;
         if (windowHeight > 603) {
-          that.globalData.extraHeight = windowHeight - 603;
-        } else {
-          that.globalData.extraHeight = 0;
+          extraHeight = windowHeight - 603;
         }
+        const extraRatioHeight = (extraHeight * 2) / res.devicePixelRatio;
+        that.globalData.extraHeight = extraRatioHeight;
+        console.log('= [system] extra height', extraRatioHeight);
       }
     });
   },

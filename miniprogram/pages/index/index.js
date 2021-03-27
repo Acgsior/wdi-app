@@ -6,8 +6,8 @@ const notAnimatedCls = 'not-animated';
 const app = getApp();
 
 // FIXME need check why fileid do not work
-// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
-const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
+// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
+const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
 
 // FIXME update when page#3 photograph source is confirmed
 const assetTotal = 0;
