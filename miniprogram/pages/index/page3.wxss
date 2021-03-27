@@ -108,5 +108,5 @@
 .page-3 .bottom {
   position: absolute;
   bottom: 0;
-  left: 49%;
+  left: 47%;
 }

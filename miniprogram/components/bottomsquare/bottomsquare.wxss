@@ -1,8 +1,11 @@
 /* components/bottomsquare/bottomsquare.wxss */
+.bottom-square {
+}
+
 .bottom-square .separator {
   display: flex;
-  margin-top: 7rpx;
-  height: 100rpx;
+  margin-top: 6rpx;
+  height: 72rpx;
 }
 
 .bottom-square .separator--left {

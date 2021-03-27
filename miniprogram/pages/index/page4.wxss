@@ -27,3 +27,9 @@
   font-size: 66rpx;
   margin: 56rpx;
 }
+
+.page-4 .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 47%;
+}

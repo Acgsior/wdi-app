@@ -61,7 +61,10 @@ App({
     // get windows height to calc visual content height distance for iphone 6
     wx.getSystemInfo({
       success: (res) => {
-        console.log('= [window] window height', res.windowHeight);
+        console.log('= [system] system info', res);
+        console.log('= [window] device pixel ratio', res.devicePixelRatio);
+        that.globalData.ratio = res.devicePixelRatio;
+
         const windowHeight = res.windowHeight;
         // iphone 6 mini-app screen height 603
         if (windowHeight > 603) {

@@ -1,16 +1,20 @@
+.page-1.page {
+  position: relative;
+}
+
 .page-1 .top {
   margin: 48rpx 0 0;
 }
 
 .page-1 .top .top-content {
   font-size: 76rpx;
+  line-height: 84rpx;
   color: var(--main-gold-color);
   text-align: center;
   letter-spacing: 2rpx;
 }
 
 .page-1 .main {
-  margin-top: -68rpx;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -108,5 +112,7 @@
 }
 
 .page-1 .bottom {
-  margin-top: 24rpx;
+  position: absolute;
+  bottom: 0;
+  left: 47%;
 }
