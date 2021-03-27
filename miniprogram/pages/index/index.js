@@ -1197,7 +1197,6 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '4月24日的邀请函',
-      path: '/page/index/index',
       imageUrl: '../../images/share.jpg'
     }
   },
