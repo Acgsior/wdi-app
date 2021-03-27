@@ -6,10 +6,9 @@ const notAnimatedCls = 'not-animated';
 const app = getApp();
 
 // FIXME need check why fileid do not work
-// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
-const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/will-you-marry-me-marlboro-32kbps.mp3';
+// const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
+const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
 
-// FIXME update when page#3 photograph source is confirmed
 const assetTotal = 0;
 
 Page({
@@ -17,6 +16,9 @@ Page({
     // dom
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
+    ratio: app.globalData.ratio,
+    isIPX: app.globalData.isIPX,
+
     bottomReady: false,
 
     // swiper page index
@@ -47,13 +49,24 @@ Page({
       bottom: notAnimatedCls
     },
     p3AnimationCls: {
-
+      photo1: notAnimatedCls,
+      text1: notAnimatedCls,
+      shadow1: notAnimatedCls,
+      photo2: notAnimatedCls,
+      text2: notAnimatedCls,
+      shadow2: notAnimatedCls,
+      photo3: notAnimatedCls,
+      text3: notAnimatedCls,
+      rect3: notAnimatedCls,
+      heart3: notAnimatedCls,
+      prevArrow: notAnimatedCls,
+      nextArrow: notAnimatedCls,
+      bottom: notAnimatedCls
     },
     p4AnimationCls: {
       time: notAnimatedCls,
       address: notAnimatedCls,
-      blessing: notAnimatedCls,
-      bottom: notAnimatedCls
+      blessing: notAnimatedCls
     },
     pageTimeIds: {
       p1: [],
@@ -62,7 +75,7 @@ Page({
       p4: [],
     },
 
-    p3PhotoIndex: 1,
+    p3PhotoIndex: 0,
 
     // loading
     assetMgm: {
@@ -85,9 +98,9 @@ Page({
         latitude: 30.71899975983765,
         longitude: 103.82923803966423,
         title: '云豪假期酒店',
-        iconPath: '../../images/location.png',
-        width: 50,
-        height: 50
+        iconPath: '../../images/heart.png',
+        width: 32,
+        height: 32
       }]
     }
   },
@@ -137,17 +150,19 @@ Page({
     const that = this;
     audioContext.onCanplay(() => {
       console.log('= [audio] audio onCanplay');
-      // audioContext.play();
+      audioContext.play();
 
-      // that.setData({ isPlaying: true });
+      that.setData({
+        isPlaying: true
+      });
 
-      // that.notifyAssetLoaded('audio');
+      that.notifyAssetLoaded('audio');
     });
 
     // FIXME mock audio loaded
-    setTimeout(function () {
-      that.notifyAssetLoaded('audio');
-    }, 1500);
+    // setTimeout(function () {
+    //   that.notifyAssetLoaded('audio');
+    // }, 1500);
 
     // map part
     this.mapCtx = wx.createMapContext('myMap')
@@ -173,7 +188,7 @@ Page({
         current,
       }
     } = e;
-    console.log(`= [swiper] handle page change to page#${current}`);
+    console.log(`= [swiper] handle page change to page#${current + 1}`);
   },
 
   handlePageChangeFinish: function (e) {
@@ -182,9 +197,11 @@ Page({
         current
       }
     } = e;
-    console.log(`= [swiper] handle page change to page#${current} finish`);
+    console.log(`= [swiper] handle page change to page#${current + 1} finish`);
 
-    this.startAnimationChain(current);
+    if (this.data.pageIndex !== current) {
+      this.startAnimationChain(current);
+    }
   },
 
   startAnimationChain(page) {
@@ -198,7 +215,7 @@ Page({
         break;
       }
       case 2: {
-        this.startAnimationChain3();
+        this.startAnimationChain3Photo1();
         break;
       }
       case 3: {
@@ -216,7 +233,6 @@ Page({
       [cur]: notAnimatedCls
     }), {});
 
-    // FIXME test OPTION#2 to clear animations
     if (this.data.pageIndex !== page) {
       switch (this.data.pageIndex) {
         case 0: {
@@ -224,16 +240,17 @@ Page({
           break;
         }
         case 1: {
-          this.startAnimationChain2();
+          this.clearAnimationChain2();
           break;
         }
         case 2: {
-          this.startAnimationChain3();
+          this.clearAnimationChain3Photo1();
+          this.clearAnimationChain3Photo2();
+          this.clearAnimationChain3Photo3();
           break;
         }
         case 3: {
-          this.startAnimationChain4();
-          // FIXME createMapContext then openMapApp to guide
+          this.clearAnimationChain4();
           break;
         }
       }
@@ -243,10 +260,6 @@ Page({
         pageIndex: page
       });
     }
-
-    // FIXME need think about what if animation do not completed?
-    // OPTION#1: cancel all setTimeout
-    // OPTION#2: directly call clearAnimation
   },
 
   checkAssetLoadState: function (that) {
@@ -327,12 +340,12 @@ Page({
 
     this.animateP1MainBgImg();
     this.animateP1Top1();
-    const id1 = setTimeout(this.animateP1Top2, 800, 1);
-    const id2 = setTimeout(this.animateP1MainBgRect, 1600, 1);
-    const id3 = setTimeout(this.animateP1Protagonist, 1600, 1);
-    const id4 = setTimeout(this.animateBottom, 2800, 1);
-    const id5 = setTimeout(this.animateP1ProtagonistName, 3000, 1);
-    const id6 = setTimeout(this.animateP1ProtagonistSplit, 3000, 1);
+    const id1 = setTimeout(this.animateP1Top2, 400, 1);
+    const id2 = setTimeout(this.animateP1MainBgRect, 800, 1);
+    const id3 = setTimeout(this.animateP1Protagonist, 1100, 1);
+    const id4 = setTimeout(this.animateBottom, 2000, 1);
+    const id5 = setTimeout(this.animateP1ProtagonistName, 2100, 1);
+    const id6 = setTimeout(this.animateP1ProtagonistSplit, 2100, 1);
 
     this.setData({
       'pageTimeIds.p1': [id1, id2, id3, id4, id5, id6]
@@ -344,29 +357,74 @@ Page({
 
     this.animateP2Logo();
     this.animateP2BgRect()
-    setTimeout(this.animateP2InviteYou, 400);
-    setTimeout(this.animateP2Protagonist, 800);
-    setTimeout(this.animateP2ProtagonistSplit, 1400);
-    setTimeout(this.animateP2Time, 1000);
-    setTimeout(this.animateP2WeddingSplit, 1200);
-    setTimeout(this.animateP2WeddingEn, 1200);
-    setTimeout(this.animateP2WeddingCn, 1200);
-    setTimeout(this.animateP2Address, 1400);
-    setTimeout(this.animateBottom, 2100, 2);
+    const id1 = setTimeout(this.animateP2InviteYou, 400);
+    const id2 = setTimeout(this.animateP2Protagonist, 800);
+    const id3 = setTimeout(this.animateP2ProtagonistSplit, 1400);
+    const id4 = setTimeout(this.animateP2Time, 1000);
+    const id5 = setTimeout(this.animateP2WeddingSplit, 1200);
+    const id6 = setTimeout(this.animateP2WeddingEn, 1200);
+    const id7 = setTimeout(this.animateP2WeddingCn, 1200);
+    const id8 = setTimeout(this.animateP2Address, 1200);
+    const id9 = setTimeout(this.animateBottom, 1800, 2);
+
+    this.setData({
+      'pageTimeIds.p2': [id1, id2, id3, id4, id5, id6, id7, id8, id9]
+    });
   },
 
-  startAnimationChain3: function () {
-    console.log('= [ani] start animation chain#3');
+  startAnimationChain3Photo1: function () {
+    console.log('= [ani] start animation chain#3 - photo@1');
 
+    this.animateP3Photo(1);
+    this.animateP3NextArrow();
+    const id1 = setTimeout(this.animateP3Shadow1, 600);
+    const id2 = setTimeout(this.animateP3Text, 800, 1);
+    setTimeout(this.animateBottom, 1200, 3);
+
+    this.setData({
+      'pageTimeIds.p3': [...this.data.pageTimeIds.p3, id1, id2]
+    });
+  },
+
+
+  startAnimationChain3Photo2: function () {
+    console.log('= [ani] start animation chain#3 - photo@2');
+
+    this.animateP3Photo(2);
+    this.animateP3NextArrow();
+    this.animateP3PrevArrow();
+    const id1 = setTimeout(this.animateP3Shadow2, 600);
+    const id2 = setTimeout(this.animateP3Text, 800, 2);
+
+    this.setData({
+      'pageTimeIds.p3': [...this.data.pageTimeIds.p3, id1, id2]
+    });
+  },
+
+  startAnimationChain3Photo3: function () {
+    console.log('= [ani] start animation chain#3 - photo@3');
+
+    this.animateP3Photo(3);
+    this.animateP3PrevArrow();
+    const id1 = setTimeout(this.animateP3Rect3, 600);
+    const id2 = setTimeout(this.animateP3Heart3, 1800);
+    const id3 = setTimeout(this.animateP3Text, 800, 3);
+
+    this.setData({
+      'pageTimeIds.p3': [...this.data.pageTimeIds.p3, id1, id2, id3]
+    });
   },
 
   startAnimationChain4: function () {
     console.log('= [ani] start animation chain#4');
 
     this.animateP4Time();
-    setTimeout(this.animateP4Address, 400);
-    setTimeout(this.animateP4Blessing, 600);
-    setTimeout(this.animateBottom, 1000, 4);
+    const id1 = setTimeout(this.animateP4Address, 400);
+    const id2 = setTimeout(this.animateP4Blessing, 600);
+
+    this.setData({
+      'pageTimeIds.p4': [id1, id2]
+    });
   },
 
   clearAnimationChain1: function () {
@@ -389,16 +447,89 @@ Page({
   },
 
   clearAnimationChain2: function () {
+    this.clearAnimation('.page-1 .logo-container', null);
+    this.clearAnimation('.page-1 .container--outside', null);
+    this.clearAnimation('.page-1 .invite-you', null);
+    this.clearAnimation('.page-1 .protagonist', null);
+    this.clearAnimation('.page-1 .protagonist-split', null);
+    this.clearAnimation('.page-1 .page-2 >>> .time', null);
+    this.clearAnimation('.page-1 .page-2 >>> .address', null);
+    this.clearAnimation('.page-1 .page-2 .wedding--split', null);
+    this.clearAnimation('.page-1 .page-2 .wedding--en', null);
+    this.clearAnimation('.page-1 .page-2 .wedding--cn', null);
+    this.clearAnimation('.page-1 .bottom', null);
+
+    const timeoutIds = this.data.pageTimeIds.p2;
+    timeoutIds.forEach(tid => {
+      clearTimeout(tid);
+    });
+    this.setData({
+      'pageTimeIds.p2': []
+    });
 
     console.log('= [ani] clear all animation chain#2');
   },
 
-  clearAnimationChain3: function () {
+  clearAnimationChain3Timer: function () {
+    const timeoutIds = this.data.pageTimeIds.p3;
+    timeoutIds.forEach(tid => {
+      clearTimeout(tid);
+    });
+    this.setData({
+      'pageTimeIds.p3': []
+    });
+  },
 
-    console.log('= [ani] clear all animation chain#3');
+  clearAnimationChain3Photo1: function () {
+    this.clearAnimationChain3Timer();
+
+    this.clearAnimation('.page-3 >>> .next-arrow', null);
+    this.clearAnimation('.page-3 >>> .prev-arrow', null);
+    this.clearAnimation('.page-3 .photo--1', null);
+    this.clearAnimation('.page-3 .photo-text--1', null);
+    this.clearAnimation('.page-3 .photo-shadow--1', null);
+    this.clearAnimation('.page-3 .bottom', null);
+
+    console.log('= [ani] clear all animation chain#3 photo@1');
+  },
+
+  clearAnimationChain3Photo2: function () {
+    this.clearAnimationChain3Timer();
+
+    this.clearAnimation('.page-3 >>> .next-arrow', null);
+    this.clearAnimation('.page-3 >>> .prev-arrow', null);
+    this.clearAnimation('.page-3 .photo--2', null);
+    this.clearAnimation('.page-3 .photo-text--2', null);
+    this.clearAnimation('.page-3 .photo-shadow--2', null);
+
+    console.log('= [ani] clear all animation chain#3 photo@2');
+  },
+
+  clearAnimationChain3Photo3: function () {
+    this.clearAnimationChain3Timer();
+
+    this.clearAnimation('.page-3 >>> .next-arrow', null);
+    this.clearAnimation('.page-3 >>> .prev-arrow', null);
+    this.clearAnimation('.page-3 .photo--3', null);
+    this.clearAnimation('.page-3 .photo-text--3', null);
+    this.clearAnimation('.page-3 .top-border--heart', null);
+    this.clearAnimation('.page-3 .top-border--3', null);
+
+    console.log('= [ani] clear all animation chain#3 photo@3');
   },
 
   clearAnimationChain4: function () {
+    this.clearAnimation('.page-4 >>> .time', null);
+    this.clearAnimation('.page-4 >>> .address', null);
+    this.clearAnimation('.page-4 .blessing', null);
+
+    const timeoutIds = this.data.pageTimeIds.p4;
+    timeoutIds.forEach(tid => {
+      clearTimeout(tid);
+    });
+    this.setData({
+      'pageTimeIds.p4': []
+    });
 
     console.log('= [ani] clear all animation chain#4');
   },
@@ -429,13 +560,13 @@ Page({
     const selector = '.page-1 .top-content-1';
     this.animate(selector, [{
         opacity: 0,
-        translateY: 40,
+        translateY: '64rpx',
       },
       {
         opacity: 1,
         translateY: 0,
       }
-    ], 800, function () {
+    ], 500, function () {
       this.setData({
         ['p1AnimationCls.top1']: ''
       });
@@ -449,13 +580,13 @@ Page({
     const selector = '.page-1 .top-content-2';
     this.animate(selector, [{
         opacity: 0,
-        translateY: 40,
+        translateY: '64rpx',
       },
       {
         opacity: 1,
         translateY: 0,
       }
-    ], 800, function () {
+    ], 500, function () {
       this.setData({
         ['p1AnimationCls.top2']: ''
       });
@@ -470,7 +601,7 @@ Page({
     this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
-        translateY: 40,
+        translateY: '64rpx',
         rotate: 45
       },
       {
@@ -479,7 +610,7 @@ Page({
         translateY: 0,
         rotate: 45
       }
-    ], 800, function () {
+    ], 500, function () {
       this.setData({
         ['p1AnimationCls.bgRect']: ''
       });
@@ -500,7 +631,7 @@ Page({
         opacity: 1,
         scale: [1, 1]
       }
-    ], 1600, function () {
+    ], 1200, function () {
       this.setData({
         ['p1AnimationCls.protagonist']: ''
       });
@@ -556,7 +687,6 @@ Page({
         offset: 1,
         scale: [1, 1]
       },
-
     ], 1000, function () {
       this.setData({
         ['p1AnimationCls.protagonistSplit']: ''
@@ -572,14 +702,14 @@ Page({
     this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
-        translateY: 72
+        translateY: '72rpx'
       },
       {
         ease: 'ease-out',
         opacity: 1,
         translateY: 0
       }
-    ], 1600, function () {
+    ], 600, function () {
       this.setData({
         [`p${page}AnimationCls.bottom`]: '',
         bottomReady: true
@@ -633,7 +763,7 @@ Page({
   animateP2InviteYou: function () {
     const selector = '.page-2 .invite-you';
     this.animate(selector, [{
-        translateY: -10,
+        translateY: '-20rpx',
         opacity: 0,
       },
       {
@@ -654,7 +784,7 @@ Page({
   animateP2Protagonist: function () {
     const selector = '.page-2 .protagonist';
     this.animate(selector, [{
-        translateY: -10,
+        translateY: '-20rpx',
         opacity: 0,
       },
       {
@@ -672,35 +802,16 @@ Page({
     }.bind(this));
   },
 
-  // FIXME add heartbeat animation loop for heart icon
   animateP2ProtagonistSplit: function () {
     const selector = '.page-2 .protagonist-split';
     this.animate(selector, [{
-        offset: 0,
         opacity: 0,
       },
       {
-        offset: 0.2,
-        opacity: 1
-      },
-      {
-        offset: 0.4,
-        scale: [1.5, 1.5]
-      },
-      {
-        offset: 0.6,
-        scale: [1, 1]
-      },
-      {
-        offset: 0.8,
-        scale: [1.5, 1.5]
-      },
-      {
-        offset: 1,
-        scale: [1, 1]
-      },
-
-    ], 1000, function () {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 400, function () {
       this.setData({
         ['p2AnimationCls.protagonistSplit']: ''
       });
@@ -715,7 +826,7 @@ Page({
     this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
-        translateY: -80
+        translateY: '-144rpx'
       },
       {
         ease: 'ease-out',
@@ -737,7 +848,7 @@ Page({
     this.animate(selector, [{
         ease: 'ease-out',
         opacity: 0,
-        translateY: -80
+        translateY: '-144rpx'
       },
       {
         ease: 'ease-out',
@@ -779,7 +890,7 @@ Page({
     const selector = '.page-2 .wedding--en';
     this.animate(selector, [{
         opacity: 0,
-        translateY: 12
+        translateY: '24rpx'
       },
       {
         ease: 'ease-out',
@@ -800,7 +911,7 @@ Page({
     const selector = '.page-2 .wedding--cn';
     this.animate(selector, [{
         opacity: 0,
-        translateY: -12
+        translateY: '-24rpx'
       },
       {
         ease: 'ease-out',
@@ -810,6 +921,170 @@ Page({
     ], 1000, function () {
       this.setData({
         ['p2AnimationCls.weddingCn']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  // --- Animation for Page#3 --- //
+
+  animateP3Photo: function (photo) {
+    const selector = `.page-3 .photo--${photo}`;
+    this.animate(selector, [{
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 800, function () {
+      this.setData({
+        [`p3AnimationCls.photo${photo}`]: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3Shadow1: function () {
+    const selector = '.page-3 .photo-shadow--1';
+    this.animate(selector, [{
+        opacity: 0,
+        translate: [0, 0],
+      },
+      {
+        ease: 'ease-out',
+        translate: ['40rpx', '40rpx'],
+        opacity: 1,
+      }
+    ], 600, function () {
+      this.setData({
+        ['p3AnimationCls.shadow1']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3Shadow2: function () {
+    const selector = '.page-3 .photo-shadow--2';
+    this.animate(selector, [{
+        opacity: 0,
+        translate: [0, 0],
+      },
+      {
+        ease: 'ease-out',
+        translate: ['-40rpx', '-40rpx'],
+        opacity: 1,
+      }
+    ], 600, function () {
+      this.setData({
+        ['p3AnimationCls.shadow2']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3Rect3: function () {
+    const selector = '.page-3 .top-border--3';
+    this.animate(selector, [{
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+      }
+    ], 1200, function () {
+      this.setData({
+        ['p3AnimationCls.rect3']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3Heart3: function () {
+    const selector = '.page-3 .top-border--heart';
+    this.animate(selector, [{
+        opacity: 0,
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1
+      }
+    ], 1200, function () {
+      this.setData({
+        ['p3AnimationCls.heart3']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3Text: function (photo) {
+    const selector = `.page-3 .photo-text--${photo}`;
+    this.animate(selector, [{
+        opacity: 0,
+        translateY: '-40rpx'
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateY: 0
+      }
+    ], 1000, function () {
+      this.setData({
+        [`p3AnimationCls.text${photo}`]: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3NextArrow: function () {
+    const selector = '.page-3 >>> .next-arrow';
+    this.animate(selector, [{
+        opacity: 0,
+        translateX: '-48rpx'
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateX: '-8rpx'
+      }
+    ], 800, function () {
+      this.setData({
+        ['p3AnimationCls.nextArrow']: ''
+      });
+      this.clearAnimation(selector, null, function () {
+        console.log(`= [ani] ${selector} animation`);
+      })
+    }.bind(this));
+  },
+
+  animateP3PrevArrow: function () {
+    const selector = '.page-3 >>> .prev-arrow';
+    this.animate(selector, [{
+        opacity: 0,
+        translateX: '12rpx'
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        translateX: '-28rpx'
+      }
+    ], 800, function () {
+      this.setData({
+        ['p3AnimationCls.prevArrow']: ''
       });
       this.clearAnimation(selector, null, function () {
         console.log(`= [ani] ${selector} animation`);
@@ -910,15 +1185,34 @@ Page({
   },
 
   onTapPrev: function () {
+    const prevIndex = this.data.p3PhotoIndex - 1;
     this.setData({
-      p3PhotoIndex: this.data.p3PhotoIndex - 1
+      p3PhotoIndex: prevIndex
+    }, function () {
+      if (prevIndex === 0) {
+        this.clearAnimationChain3Photo2();
+        this.startAnimationChain3Photo1();
+      } else {
+        this.clearAnimationChain3Photo3();
+        this.startAnimationChain3Photo2();
+      }
     });
   },
 
   onTapNext: function () {
+    const nextIndex = this.data.p3PhotoIndex + 1;
     this.setData({
-      p3PhotoIndex: this.data.p3PhotoIndex + 1
+      p3PhotoIndex: nextIndex
+    }, function () {
+      if (nextIndex === 1) {
+        this.clearAnimationChain3Photo1();
+        this.startAnimationChain3Photo2();
+      } else {
+        this.clearAnimationChain3Photo2();
+        this.startAnimationChain3Photo3();
+      }
     });
   },
+
 
 });

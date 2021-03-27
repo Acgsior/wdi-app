@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 48rpx;
 }
 
 .page-3 .photo-text--cn,
@@ -41,6 +42,10 @@
   width: 450rpx;
 }
 
+.page-3 .photo-content image {
+  border: 1rpx solid var(--main-gold-color);
+}
+
 .page-3 .photo-shadow {
   border: 8rpx solid var(--main-gold-color);
 }
@@ -52,8 +57,7 @@
 
 .page-3 .photo-shadow--1 {
   position: absolute;
-  top: 40rpx;
-  left: 40rpx;
+  transform: translate(40rpx, 40rpx);
 }
 
 .page-3 .photo--2 {
@@ -63,15 +67,16 @@
 
 .page-3 .photo-shadow--2 {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 40rpx;
+  left: 40rpx;
+  transform: translate(-40rpx, -40rpx);
   background-color: var(--main-gold-color);
 }
 
 .page-3 .photo-content image.photo--3 {
   margin: 40rpx auto;
   z-index: 10;
-  width: 572rpx;
+  width: 640rpx;
 }
 
 .page-3 .top-border--3 {
@@ -84,9 +89,9 @@
 
 .page-3 .top-border--heart {
   width: 32rpx;
-  height: 28rpx;
+  height: 32rpx;
   position: absolute;
-  top: -28rpx;
+  top: -32rpx;
   right: 0;
 }
 
@@ -98,15 +103,17 @@
 }
 
 .page-3 .prev-arrow {
-  left: -28rpx;
+  left: 0;
+  transform: translateX(-28rpx);
 }
 
 .page-3 .next-arrow {
-  right: -8rpx;
+  right: 0;
+  transform: translateX(-8rpx);
 }
 
 .page-3 .bottom {
   position: absolute;
   bottom: 0;
-  left: 49%;
+  left: 47%;
 }

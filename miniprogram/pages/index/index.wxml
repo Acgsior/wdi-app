@@ -1,21 +1,23 @@
 <!--index.wxml-->
-<!-- FIXME debounced to hide spinning state -->
-<spin wx:if="{{!assetMgm.loaded}}" spinning="{{!assetMgm.loaded}}" percent="{{assetMgm.percent}}" />
+<view class="{{isIPX ? 'container--x' : ''}}">
+  <!-- FIXME debounced to hide spinning state -->
+  <spin wx:if="{{!assetMgm.loaded}}" spinning="{{!assetMgm.loaded}}" percent="{{assetMgm.percent}}" />
 
-<swiper class="page-swiper" vertical="{{true}}" easing-function="easeInOutCubic" bindchange="handlePageChange"
-  bindanimationfinish="handlePageChangeFinish">
-  <swiper-item>
-    <include src="page1.wxml" />
-  </swiper-item>
-  <swiper-item>
-    <include src="page2.wxml" />
-  </swiper-item>
-  <swiper-item>
-    <include src="page3.wxml" />
-  </swiper-item>
-  <swiper-item>
-    <include src="page4.wxml" />
-  </swiper-item>
-</swiper>
+  <swiper class="page-swiper" vertical="{{true}}" easing-function="easeInOutCubic" bindchange="handlePageChange"
+    bindanimationfinish="handlePageChangeFinish">
+    <swiper-item>
+      <include src="page1.wxml" />
+    </swiper-item>
+    <swiper-item>
+      <include src="page2.wxml" />
+    </swiper-item>
+    <swiper-item>
+      <include src="page3.wxml" />
+    </swiper-item>
+    <swiper-item>
+      <include src="page4.wxml" />
+    </swiper-item>
+  </swiper>
 
-<include src="bgm.wxml" />
+  <include src="bgm.wxml" />
+</view>

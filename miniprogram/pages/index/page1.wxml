@@ -1,5 +1,5 @@
 <view class="page page-1">
-  <view class="top">
+  <view class="top" style="margin-top: {{48 + 0.2 * extraHeight}}rpx">
     <view class="top-content top-content-1 futura {{p1AnimationCls['top1']}}">
       WEDDING
     </view>
@@ -7,12 +7,12 @@
       INVITATION
     </view>
   </view>
-  <view class="main">
+  <view class="main" style="margin-top: {{0.48 * extraHeight}}rpx">
     <view class="main-bg--rect {{p1AnimationCls['bgRect']}}">
       <view class="main-bg--rect-inside" />
     </view>
     <view class="main-bg-img {{p1AnimationCls['bgImg']}}">
-      <image src="../../images/bouquet.png" style="height: {{836 + 0.5 * extraHeight}}rpx;"
+      <image src="../../images/bouquet-light.png" style="height: {{836 + 0.5 * extraHeight}}rpx"
         bindload="notifyAssetLoaded" />
     </view>
     <view class="protagonist {{p1AnimationCls['protagonist']}}">
