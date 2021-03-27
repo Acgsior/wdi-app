@@ -62,8 +62,18 @@ App({
     wx.getSystemInfo({
       success: (res) => {
         console.log('= [system] system info', res);
+        console.log('= [system] device model', res.model);
         console.log('= [window] device pixel ratio', res.devicePixelRatio);
+
         that.globalData.ratio = res.devicePixelRatio;
+
+        const iPhone = res.model.indexOf('iPhone') >= 0;
+        const iPhoneX = res.model.indexOf('iPhone X') >= 0;
+        const iPhone11 = res.model.indexOf('11') >= 0;
+        const iPhone12 = res.model.indexOf('12') >= 0;
+        const isIPX = iPhone && (iPhoneX || iPhone11 || iPhone12);
+
+        that.globalData.isIPX = isIPX;
 
         const windowHeight = res.windowHeight;
         // iphone 6 mini-app screen height 603

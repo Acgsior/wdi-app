@@ -17,6 +17,9 @@ Page({
     // dom
     // read extra height from global to adapt large screen
     extraHeight: app.globalData.extraHeight,
+    ratio: app.globalData.ratio,
+    isIPX: app.globalData.isIPX,
+
     bottomReady: false,
 
     // swiper page index
@@ -137,17 +140,19 @@ Page({
     const that = this;
     audioContext.onCanplay(() => {
       console.log('= [audio] audio onCanplay');
-      // audioContext.play();
+      audioContext.play();
 
-      // that.setData({ isPlaying: true });
+      that.setData({
+        isPlaying: true
+      });
 
-      // that.notifyAssetLoaded('audio');
+      that.notifyAssetLoaded('audio');
     });
 
     // FIXME mock audio loaded
-    setTimeout(function () {
-      that.notifyAssetLoaded('audio');
-    }, 1500);
+    // setTimeout(function () {
+    //   that.notifyAssetLoaded('audio');
+    // }, 1500);
 
     // map part
     this.mapCtx = wx.createMapContext('myMap')
