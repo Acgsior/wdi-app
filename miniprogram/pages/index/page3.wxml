@@ -1,14 +1,14 @@
 <view class="page page-3">
-  <arrow className="prev-arrow {{p3PhotoIndex > 0 ? '' : 'hidden'}}" direction="left"></arrow>
-  <arrow className="next-arrow {{p3PhotoIndex < 2 ? '' : hidden}}" direction="right"></arrow>
+  <arrow className="prev-arrow {{p3PhotoIndex > 0 ? '' : 'hidden'}}" bindtap="onTapPrev" direction="left"></arrow>
+  <arrow className="next-arrow {{p3PhotoIndex < 2 ? '' : 'hidden'}}" bindtap="onTapNext" direction="right"></arrow>
   <view class="container">
     <view class="photo-container {{p3PhotoIndex === 0 ? '' : 'hidden'}}">
-      <view class="photo-text--cn">她在等待</view>
-      <view class="photo-text--en">She always remembers that day</view>
       <view class="photo-content">
         <image class="photo--1" src="../../images/1.jpg" alt="" />
         <view class="photo-shadow photo-shadow--1"></view>
       </view>
+      <view class="photo-text--cn">她在等待</view>
+      <view class="photo-text--en">She always remembers that day</view>
     </view>
     <view class="photo-container {{p3PhotoIndex === 1 ? '' : 'hidden'}}">
       <view class="photo-content">
@@ -19,12 +19,14 @@
       <view class="photo-text--en">He always left her the best thing</view>
     </view>
     <view class="photo-container {{p3PhotoIndex === 2 ? '' : 'hidden'}}">
-      <view class="photo-text--cn">直到他们在一起</view>
-      <view class="photo-text--en">They‘d be together forever.</view>
+      <view class="top-border--3">
+        <image class="top-border--heart" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAMAAABo+94fAAAAP1BMVEUAAADRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXfRsXe/L9lSAAAAFHRSTlMATet5WKU3KN3czcWunJaGEqg8L8z42FYAAABuSURBVBjTbc9JDoMwDEDRb2dihra5/1kbkSAQ8VtZX17YFGkddXIUbtJxTZx8Ps0w18lTxNyEkJsvoLmjINkg7Fbe2ay84azs+Fk5wdLXBTj6fIBxotzfP3ga6XarOFxxiDx9ag28uPpGR1SFyx+UbRRjtQ2MRQAAAABJRU5ErkJggg==" />
+      </view>
       <view class="photo-content">
         <image class="photo--3" src="../../images/3.jpg" alt="" />
       </view>
-      <view class="bottom-border--3"></view>
+      <view class="photo-text--cn">直到他们在一起</view>
+      <view class="photo-text--en">They‘d be together forever.</view>
     </view>
   </view>
   <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}} {{p3AnimationCls['bottom']}}">

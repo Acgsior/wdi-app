@@ -20,9 +20,9 @@ Page({
     bottomReady: false,
 
     // swiper page index
-    pageIndex: 2,
+    pageIndex: 0,
 
-    // animation class name of page#1
+    // animation class name of page
     p1AnimationCls: {
       bgImg: notAnimatedCls,
       bgRect: notAnimatedCls,
@@ -55,9 +55,14 @@ Page({
       blessing: notAnimatedCls,
       bottom: notAnimatedCls
     },
+    pageTimeIds: {
+      p1: [],
+      p2: [],
+      p3: [],
+      p4: [],
+    },
 
     p3PhotoIndex: 1,
-
 
     // loading
     assetMgm: {
@@ -192,6 +197,10 @@ Page({
         this.startAnimationChain2();
         break;
       }
+      case 2: {
+        this.startAnimationChain3();
+        break;
+      }
       case 3: {
         this.startAnimationChain4();
         // FIXME createMapContext then openMapApp to guide
@@ -208,17 +217,32 @@ Page({
     }), {});
 
     // FIXME test OPTION#2 to clear animations
-    switch(this.data.pageIndex) {
-      case 0: {
-        this.clearAnimationChain1();
-        break;
+    if (this.data.pageIndex !== page) {
+      switch (this.data.pageIndex) {
+        case 0: {
+          this.clearAnimationChain1();
+          break;
+        }
+        case 1: {
+          this.startAnimationChain2();
+          break;
+        }
+        case 2: {
+          this.startAnimationChain3();
+          break;
+        }
+        case 3: {
+          this.startAnimationChain4();
+          // FIXME createMapContext then openMapApp to guide
+          break;
+        }
       }
-    }
 
-    this.setData({
-      [prevPageAniKey]: nextAnimationClassData,
-      pageIndex: page
-    });
+      this.setData({
+        [prevPageAniKey]: nextAnimationClassData,
+        pageIndex: page
+      });
+    }
 
     // FIXME need think about what if animation do not completed?
     // OPTION#1: cancel all setTimeout
@@ -226,7 +250,7 @@ Page({
   },
 
   checkAssetLoadState: function (that) {
-    const loaded = that.data.assetMgm.loadedCount === assetTotal
+    const loaded = that.data.assetMgm.loadedCount >= assetTotal
     if (loaded) {
       if (that.data.assetMgm.intervalId >= 0) {
         clearInterval(that.data.assetMgm.intervalId);
@@ -303,12 +327,16 @@ Page({
 
     this.animateP1MainBgImg();
     this.animateP1Top1();
-    setTimeout(this.animateP1Top2, 800);
-    setTimeout(this.animateP1MainBgRect, 1600);
-    setTimeout(this.animateP1Protagonist, 1600);
-    setTimeout(this.animateBottom, 2800, 1);
-    setTimeout(this.animateP1ProtagonistName, 3000);
-    setTimeout(this.animateP1ProtagonistSplit, 3000);
+    const id1 = setTimeout(this.animateP1Top2, 800, 1);
+    const id2 = setTimeout(this.animateP1MainBgRect, 1600, 1);
+    const id3 = setTimeout(this.animateP1Protagonist, 1600, 1);
+    const id4 = setTimeout(this.animateBottom, 2800, 1);
+    const id5 = setTimeout(this.animateP1ProtagonistName, 3000, 1);
+    const id6 = setTimeout(this.animateP1ProtagonistSplit, 3000, 1);
+
+    this.setData({
+      'pageTimeIds.p1': [id1, id2, id3, id4, id5, id6]
+    });
   },
 
   startAnimationChain2: function () {
@@ -327,6 +355,11 @@ Page({
     setTimeout(this.animateBottom, 2100, 2);
   },
 
+  startAnimationChain3: function () {
+    console.log('= [ani] start animation chain#3');
+
+  },
+
   startAnimationChain4: function () {
     console.log('= [ani] start animation chain#4');
 
@@ -336,7 +369,7 @@ Page({
     setTimeout(this.animateBottom, 1000, 4);
   },
 
-  clearAnimationChain1: function() {
+  clearAnimationChain1: function () {
     this.clearAnimation('.page-1 .main-bg-img', null);
     this.clearAnimation('.page-1 .top-content-1', null);
     this.clearAnimation('.page-1 .top-content-2', null);
@@ -344,7 +377,30 @@ Page({
     this.clearAnimation('.page-1 .protagonist', null);
     this.clearAnimation('.page-1 .bottom', null);
 
+    const timeoutIds = this.data.pageTimeIds.p1;
+    timeoutIds.forEach(tid => {
+      clearTimeout(tid);
+    });
+    this.setData({
+      'pageTimeIds.p1': []
+    });
+
     console.log('= [ani] clear all animation chain#1');
+  },
+
+  clearAnimationChain2: function () {
+
+    console.log('= [ani] clear all animation chain#2');
+  },
+
+  clearAnimationChain3: function () {
+
+    console.log('= [ani] clear all animation chain#3');
+  },
+
+  clearAnimationChain4: function () {
+
+    console.log('= [ani] clear all animation chain#4');
   },
 
   // --- Animation for Page#1 --- //
@@ -810,14 +866,14 @@ Page({
   animateP4Blessing: function () {
     const selector = '.page-4 .blessing';
     this.animate(selector, [{
-      opacity: 0,
-      scale3d: [0.2, 0.2, 0.2]
-    },
-    {
-      ease: 'ease-out',
-      opacity: 1,
-      scale3d: [1, 1, 1]
-    }
+        opacity: 0,
+        scale3d: [0.2, 0.2, 0.2]
+      },
+      {
+        ease: 'ease-out',
+        opacity: 1,
+        scale3d: [1, 1, 1]
+      }
     ], 1000, function () {
       this.setData({
         ['p4AnimationCls.blessing']: ''
@@ -851,5 +907,18 @@ Page({
       path: '/page/index/index',
       imageUrl: 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/share-cover.png'
     }
-  }
-})
+  },
+
+  onTapPrev: function () {
+    this.setData({
+      p3PhotoIndex: this.data.p3PhotoIndex - 1
+    });
+  },
+
+  onTapNext: function () {
+    this.setData({
+      p3PhotoIndex: this.data.p3PhotoIndex + 1
+    });
+  },
+
+});
