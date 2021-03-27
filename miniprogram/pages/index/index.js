@@ -215,6 +215,9 @@ Page({
         break;
       }
       case 2: {
+        this.setData({
+          p3PhotoIndex: 0
+        });
         this.startAnimationChain3Photo1();
         break;
       }
