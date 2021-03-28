@@ -1,7 +1,8 @@
 <view class="page page-4">
   <view class="map-container">
     <view class="map-container--inside">
-      <map id="hotelMap" class="map" style="height: {{400 + 0.5 * extraHeight}}rpx" latitude="{{map.latitude}}"
+      <map id="hotelMap" class="map" style="height: {{400 + 0.5 * extraHeight}}rpx"
+        subkey="XV6BZ-BLMKV-DNRPR-UYC3K-WJPAK-5VBDK" layer-style="1" latitude="{{map.latitude}}"
         longitude="{{map.longitude}}" markers="{{map.markers}}" show-location />
     </view>
   </view>
