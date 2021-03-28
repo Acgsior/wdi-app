@@ -42,7 +42,7 @@
       </view>
     </view>
   </view>
-  <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}} {{p1AnimationCls['bottom']}}">
+  <view class="bottom {{ bottomReady ? 'rotatey-1t' : ''}} {{p1AnimationCls['bottom']}}">
     <bottomsquare />
   </view>
 </view>

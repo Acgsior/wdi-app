@@ -2,7 +2,7 @@
 .arrow .arrow-body {
   width: 0;
   height: 0;
-  border: 48rpx solid;
+  border: 42rpx solid;
 }
 
 .arrow--right .arrow-body {

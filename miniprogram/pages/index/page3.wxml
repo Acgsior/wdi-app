@@ -1,7 +1,7 @@
 <view class="page page-3">
-  <arrow className="prev-arrow {{p3PhotoIndex > 0 ? '' : 'hidden'}} {{p3AnimationCls['prevArrow']}}" bindtap="onTapPrev"
+  <arrow className="prev-arrow fade-in-from-right {{p3PhotoIndex > 0 ? '' : 'hidden'}} {{p3AnimationCls['prevArrow']}}" bindtap="onTapPrev"
     direction="left"></arrow>
-  <arrow className="next-arrow {{p3PhotoIndex < 2 ? '' : 'hidden'}} {{p3AnimationCls['nextArrow']}}" bindtap="onTapNext"
+  <arrow className="next-arrow fade-in-from-left {{p3PhotoIndex < 2 ? '' : 'hidden'}} {{p3AnimationCls['nextArrow']}}" bindtap="onTapNext"
     direction="right"></arrow>
   <view class="container">
     <view class="photo-container {{p3PhotoIndex === 0 ? '' : 'hidden'}}">
@@ -43,7 +43,7 @@
       </view>
     </view>
   </view>
-  <view class="bottom {{ bottomReady ? 'bottom--rotateY' : ''}} {{p3AnimationCls['bottom']}}">
+  <view class="bottom {{ bottomReady ? 'rotatey-1t' : ''}} {{p3AnimationCls['bottom']}}">
     <bottomsquare />
   </view>
 </view>
