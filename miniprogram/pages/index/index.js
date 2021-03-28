@@ -5,7 +5,7 @@ const notAnimatedCls = 'not-animated';
 
 const app = getApp();
 
-// FIXME need check why fileid do not work
+// FIXME need check the reason why fileid do not work
 // const audioURL = 'cloud://wdi-9g06h4rvb0ad273b.7764-wdi-9g06h4rvb0ad273b-1256827581/bgm.mp3';
 const audioURL = 'https://0424-1256827581.cos.ap-chengdu.myqcloud.com/bgm.mp3';
 
@@ -106,8 +106,10 @@ Page({
   },
 
   onReady: function () {
+    console.log('= [page] page on ready');
+
     // spin part
-    this.loadAsset();
+    this.loadAssetWithFakeSpinPercent();
 
     // audio part
     wx.setInnerAudioOption({
@@ -132,14 +134,6 @@ Page({
       console.log('= [audio] audio onPlay');
     });
 
-    audioContext.onWaiting(() => {
-      console.log('= [audio] audio onWaiting');
-    });
-
-    audioContext.onPause(() => {
-      console.log('= [audio] audio onPause');
-    });
-
     audioContext.onError((res) => {
       console.log('= [audio] audio onErrorr');
       console.log(res.errMsg)
@@ -147,16 +141,10 @@ Page({
     });
 
     console.log('= [audio] audio try to play', audioContext.duration);
-    const that = this;
     audioContext.onCanplay(() => {
-      console.log('= [audio] audio onCanplay');
-      audioContext.play();
-
-      that.setData({
-        isPlaying: true
-      });
-
-      that.notifyAssetLoaded('audio');
+      this.playMusicAndNotifyAssetLoaded();
+      // need unbind can play event listener
+      audioContext.offCanplay();
     });
 
     // FIXME mock audio loaded
@@ -166,20 +154,41 @@ Page({
 
     // map part
     this.mapCtx = wx.createMapContext('myMap')
+
+    wx.onAppShow(() => {
+      console.log('= [app] app on show');
+    });
+
+    wx.onAppHide(() => {
+      console.log('= [app] app on hide');
+    });
+  },
+
+
+  onLoad: function () {
+    console.log('= [page] page on load');
   },
 
   onUnload: function () {
-    this.cleanAssetLoadRes(true);
+    console.log('= [page] page on unload');
+    this.cleanLoadedAssetResources({
+      destory: true
+    });
 
     this.data.audioContext.destroy();
   },
 
   onShow: function () {
-    this.cleanAssetLoadRes();
+    console.log('= [page] page on show');
+    this.cleanLoadedAssetResources();
+    this.data.audioContext && this.play();
   },
 
   onHide: function () {
-    this.cleanAssetLoadRes();
+    console.log('= [page] page on hide');
+
+    this.stop();
+    this.cleanLoadedAssetResources();
   },
 
   handlePageChange: function (e) {
@@ -215,6 +224,9 @@ Page({
         break;
       }
       case 2: {
+        this.setData({
+          p3PhotoIndex: 0
+        });
         this.startAnimationChain3Photo1();
         break;
       }
@@ -307,7 +319,7 @@ Page({
     }
   },
 
-  loadAsset: function () {
+  loadAssetWithFakeSpinPercent: function () {
     if (!this.data.assetMgm.loaded) {
       const intervalId = setInterval(this.checkAssetLoadState, 200, this);
       this.setData({
@@ -330,7 +342,9 @@ Page({
     });
   },
 
-  cleanAssetLoadRes: function (destory) {
+  cleanLoadedAssetResources: function ({
+    destory
+  } = {}) {
     const intervalId = this.data.assetMgm.intervalId;
     intervalId >= 0 && clearInterval(intervalId);
 
@@ -349,9 +363,11 @@ Page({
     });
   },
 
-  getAniStateClass: function (page, key) {
-    const aniState = this.data[`aniStateP${page}`][key];
-    return aniState ? '' : 'not-animated'
+  playMusicAndNotifyAssetLoaded: function() {
+    console.log('= [audio] audio onCanplay');
+
+    this.play();
+    this.notifyAssetLoaded('audio');
   },
 
   startAnimationChain1: function () {
@@ -1193,6 +1209,15 @@ Page({
       isPlaying: false
     });
   },
+
+  stop: function () {
+    this.data.audioContext.stop();
+
+    this.setData({
+      isPlaying: false
+    });
+  },
+
 
   onShareAppMessage: function (res) {
     return {
