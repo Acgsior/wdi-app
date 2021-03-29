@@ -4,8 +4,10 @@
 
 - Smoother animation
 - Enhancement of map component
-- Optimize the page part to componet
-- Optimize the js logic
+- Optimize the page part to sub-components
+  - https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html
+- Optimize the animation logic
+- Optimize load assets logic
 
 
 ## Test Pending List

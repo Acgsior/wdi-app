@@ -290,14 +290,13 @@ Page({
         console.log('= [asset] hide spin transition animation start');
         const selector = '.container >>> .spin';
         that.animate(selector, [{
-            ease: 'ease-out',
-            opacity: 1,
-          },
-          {
-            ease: 'ease-out',
-            opacity: 0,
-          }
-        ], 1000, function () {
+          ease: 'ease-out',
+          opacity: 1,
+        },
+        {
+          ease: 'ease-out',
+          opacity: 0,
+        }], 1000, function () {
           console.log('= [asset] hide spin and start animation chain');
           that.setData({
             assetMgm: {
@@ -363,7 +362,7 @@ Page({
     });
   },
 
-  playMusicAndNotifyAssetLoaded: function() {
+  playMusicAndNotifyAssetLoaded: function () {
     console.log('= [audio] audio onCanplay');
 
     this.play();
@@ -574,13 +573,13 @@ Page({
   animateP1MainBgImg: function () {
     const selector = '.page-1 .main-bg-img';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      ease: 'ease-out',
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 2000, function () {
       this.setData({
         ['p1AnimationCls.bgImg']: ''
@@ -594,13 +593,13 @@ Page({
   animateP1Top1: function () {
     const selector = '.page-1 .top-content-1';
     this.animate(selector, [{
-        opacity: 0,
-        translateY: '64rpx',
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-      }
+      opacity: 0,
+      translateY: '64rpx',
+    },
+    {
+      opacity: 1,
+      translateY: 0,
+    }
     ], 500, function () {
       this.setData({
         ['p1AnimationCls.top1']: ''
@@ -614,13 +613,13 @@ Page({
   animateP1Top2: function () {
     const selector = '.page-1 .top-content-2';
     this.animate(selector, [{
-        opacity: 0,
-        translateY: '64rpx',
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-      }
+      opacity: 0,
+      translateY: '64rpx',
+    },
+    {
+      opacity: 1,
+      translateY: 0,
+    }
     ], 500, function () {
       this.setData({
         ['p1AnimationCls.top2']: ''
@@ -634,17 +633,17 @@ Page({
   animateP1MainBgRect: function () {
     const selector = '.page-1 .main-bg--rect';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: '64rpx',
-        rotate: 45
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0,
-        rotate: 45
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: '64rpx',
+      rotate: 45
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0,
+      rotate: 45
+    }
     ], 500, function () {
       this.setData({
         ['p1AnimationCls.bgRect']: ''
@@ -658,14 +657,14 @@ Page({
   animateP1Protagonist: function () {
     const selector = '.page-1 .protagonist'
     this.animate(selector, [{
-        opacity: 0,
-        scale: [0, 0]
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        scale: [1, 1]
-      }
+      opacity: 0,
+      scale: [0, 0]
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      scale: [1, 1]
+    }
     ], 1200, function () {
       this.setData({
         ['p1AnimationCls.protagonist']: ''
@@ -679,13 +678,13 @@ Page({
   animateP1ProtagonistName: function () {
     const selector = '.page-1 .protagonist-name';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      ease: 'ease-out',
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 400, function () {
       this.setData({
         ['p1AnimationCls.protagonistName']: ''
@@ -699,29 +698,29 @@ Page({
   animateP1ProtagonistSplit: function () {
     const selector = '.page-1 .protagonist-split';
     this.animate(selector, [{
-        offset: 0,
-        opacity: 0,
-      },
-      {
-        offset: 0.2,
-        opacity: 1
-      },
-      {
-        offset: 0.4,
-        scale: [1.5, 1.5]
-      },
-      {
-        offset: 0.6,
-        scale: [1, 1]
-      },
-      {
-        offset: 0.8,
-        scale: [1.5, 1.5]
-      },
-      {
-        offset: 1,
-        scale: [1, 1]
-      },
+      offset: 0,
+      opacity: 0,
+    },
+    {
+      offset: 0.2,
+      opacity: 1
+    },
+    {
+      offset: 0.4,
+      scale: [1.5, 1.5]
+    },
+    {
+      offset: 0.6,
+      scale: [1, 1]
+    },
+    {
+      offset: 0.8,
+      scale: [1.5, 1.5]
+    },
+    {
+      offset: 1,
+      scale: [1, 1]
+    },
     ], 1000, function () {
       this.setData({
         ['p1AnimationCls.protagonistSplit']: ''
@@ -735,15 +734,15 @@ Page({
   animateBottom: function (page) {
     const selector = `.page-${page} .bottom`;
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: '72rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: '72rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 600, function () {
       this.setData({
         [`p${page}AnimationCls.bottom`]: '',
@@ -760,12 +759,12 @@ Page({
   animateP2Logo: function () {
     const selector = '.page-2 .logo-container';
     this.animate(selector, [{
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 400, function () {
       this.setData({
         ['p2AnimationCls.logo']: ''
@@ -779,12 +778,12 @@ Page({
   animateP2BgRect: function () {
     const selector = '.page-2 .container--outside';
     this.animate(selector, [{
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 800, function () {
       this.setData({
         ['p2AnimationCls.bgRect']: ''
@@ -798,14 +797,14 @@ Page({
   animateP2InviteYou: function () {
     const selector = '.page-2 .invite-you';
     this.animate(selector, [{
-        translateY: '-20rpx',
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        translateY: 0,
-        opacity: 1,
-      }
+      translateY: '-20rpx',
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      translateY: 0,
+      opacity: 1,
+    }
     ], 400, function () {
       this.setData({
         ['p2AnimationCls.inviteYou']: ''
@@ -819,14 +818,14 @@ Page({
   animateP2Protagonist: function () {
     const selector = '.page-2 .protagonist';
     this.animate(selector, [{
-        translateY: '-20rpx',
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        translateY: 0,
-        opacity: 1,
-      }
+      translateY: '-20rpx',
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      translateY: 0,
+      opacity: 1,
+    }
     ], 500, function () {
       this.setData({
         ['p2AnimationCls.protagonist']: ''
@@ -840,12 +839,12 @@ Page({
   animateP2ProtagonistSplit: function () {
     const selector = '.page-2 .protagonist-split';
     this.animate(selector, [{
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 400, function () {
       this.setData({
         ['p2AnimationCls.protagonistSplit']: ''
@@ -859,15 +858,15 @@ Page({
   animateP2Time: function () {
     const selector = '.page-2 >>> .time';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: '-144rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: '-144rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 700, function () {
       this.setData({
         ['p2AnimationCls.time']: ''
@@ -881,15 +880,15 @@ Page({
   animateP2Address: function () {
     const selector = '.page-2 >>> .address';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: '-144rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: '-144rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 700, function () {
       this.setData({
         ['p2AnimationCls.address']: ''
@@ -903,14 +902,14 @@ Page({
   animateP2WeddingSplit: function () {
     const selector = '.page-2 .wedding--split';
     this.animate(selector, [{
-        opacity: 0,
-        scale3d: [0.2, 0.2, 0.2]
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        scale3d: [1, 1, 1]
-      }
+      opacity: 0,
+      scale3d: [0.2, 0.2, 0.2]
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      scale3d: [1, 1, 1]
+    }
     ], 2000, function () {
       this.setData({
         ['p2AnimationCls.weddingSplit']: ''
@@ -924,14 +923,14 @@ Page({
   animateP2WeddingEn: function () {
     const selector = '.page-2 .wedding--en';
     this.animate(selector, [{
-        opacity: 0,
-        translateY: '24rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      opacity: 0,
+      translateY: '24rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 1000, function () {
       this.setData({
         ['p2AnimationCls.weddingEn']: ''
@@ -945,14 +944,14 @@ Page({
   animateP2WeddingCn: function () {
     const selector = '.page-2 .wedding--cn';
     this.animate(selector, [{
-        opacity: 0,
-        translateY: '-24rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      opacity: 0,
+      translateY: '-24rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 1000, function () {
       this.setData({
         ['p2AnimationCls.weddingCn']: ''
@@ -968,12 +967,12 @@ Page({
   animateP3Photo: function (photo) {
     const selector = `.page-3 .photo--${photo}`;
     this.animate(selector, [{
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 800, function () {
       this.setData({
         [`p3AnimationCls.photo${photo}`]: ''
@@ -987,14 +986,14 @@ Page({
   animateP3Shadow1: function () {
     const selector = '.page-3 .photo-shadow--1';
     this.animate(selector, [{
-        opacity: 0,
-        translate: [0, 0],
-      },
-      {
-        ease: 'ease-out',
-        translate: ['40rpx', '40rpx'],
-        opacity: 1,
-      }
+      opacity: 0,
+      translate: [0, 0],
+    },
+    {
+      ease: 'ease-out',
+      translate: ['40rpx', '40rpx'],
+      opacity: 1,
+    }
     ], 600, function () {
       this.setData({
         ['p3AnimationCls.shadow1']: ''
@@ -1008,14 +1007,14 @@ Page({
   animateP3Shadow2: function () {
     const selector = '.page-3 .photo-shadow--2';
     this.animate(selector, [{
-        opacity: 0,
-        translate: [0, 0],
-      },
-      {
-        ease: 'ease-out',
-        translate: ['-40rpx', '-40rpx'],
-        opacity: 1,
-      }
+      opacity: 0,
+      translate: [0, 0],
+    },
+    {
+      ease: 'ease-out',
+      translate: ['-40rpx', '-40rpx'],
+      opacity: 1,
+    }
     ], 600, function () {
       this.setData({
         ['p3AnimationCls.shadow2']: ''
@@ -1029,12 +1028,12 @@ Page({
   animateP3Rect3: function () {
     const selector = '.page-3 .top-border--3';
     this.animate(selector, [{
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-      }
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+    }
     ], 1200, function () {
       this.setData({
         ['p3AnimationCls.rect3']: ''
@@ -1048,12 +1047,12 @@ Page({
   animateP3Heart3: function () {
     const selector = '.page-3 .top-border--heart';
     this.animate(selector, [{
-        opacity: 0,
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1
-      }
+      opacity: 0,
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1
+    }
     ], 1200, function () {
       this.setData({
         ['p3AnimationCls.heart3']: ''
@@ -1067,14 +1066,14 @@ Page({
   animateP3Text: function (photo) {
     const selector = `.page-3 .photo-text--${photo}`;
     this.animate(selector, [{
-        opacity: 0,
-        translateY: '-40rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      opacity: 0,
+      translateY: '-40rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 1000, function () {
       this.setData({
         [`p3AnimationCls.text${photo}`]: ''
@@ -1088,14 +1087,14 @@ Page({
   animateP3NextArrow: function () {
     const selector = '.page-3 >>> .next-arrow';
     this.animate(selector, [{
-        opacity: 0,
-        translateX: '-48rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateX: '-8rpx'
-      }
+      opacity: 0,
+      translateX: '-48rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateX: '-8rpx'
+    }
     ], 800, function () {
       this.setData({
         ['p3AnimationCls.nextArrow']: ''
@@ -1109,14 +1108,14 @@ Page({
   animateP3PrevArrow: function () {
     const selector = '.page-3 >>> .prev-arrow';
     this.animate(selector, [{
-        opacity: 0,
-        translateX: '12rpx'
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateX: '-28rpx'
-      }
+      opacity: 0,
+      translateX: '12rpx'
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateX: '-28rpx'
+    }
     ], 800, function () {
       this.setData({
         ['p3AnimationCls.prevArrow']: ''
@@ -1132,15 +1131,15 @@ Page({
   animateP4Time: function () {
     const selector = '.page-4 >>> .time';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: -80
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: -80
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 700, function () {
       this.setData({
         ['p4AnimationCls.time']: ''
@@ -1154,15 +1153,15 @@ Page({
   animateP4Address: function () {
     const selector = '.page-4 >>> .address';
     this.animate(selector, [{
-        ease: 'ease-out',
-        opacity: 0,
-        translateY: -80
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        translateY: 0
-      }
+      ease: 'ease-out',
+      opacity: 0,
+      translateY: -80
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      translateY: 0
+    }
     ], 700, function () {
       this.setData({
         ['p4AnimationCls.address']: ''
@@ -1176,14 +1175,14 @@ Page({
   animateP4Blessing: function () {
     const selector = '.page-4 .blessing';
     this.animate(selector, [{
-        opacity: 0,
-        scale3d: [0.2, 0.2, 0.2]
-      },
-      {
-        ease: 'ease-out',
-        opacity: 1,
-        scale3d: [1, 1, 1]
-      }
+      opacity: 0,
+      scale3d: [0.2, 0.2, 0.2]
+    },
+    {
+      ease: 'ease-out',
+      opacity: 1,
+      scale3d: [1, 1, 1]
+    }
     ], 1000, function () {
       this.setData({
         ['p4AnimationCls.blessing']: ''
