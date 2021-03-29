@@ -2,6 +2,7 @@ page {
   border-top: 2rpx solid #959595;
 }
 
+/* safe area for iPhone X type device */
 .container--x {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
@@ -20,6 +21,8 @@ page {
 }
 
 @import './animation.wxss';
+@import './keyframes.wxss';
+
 @import './page1.wxss';
 @import './page2.wxss';
 @import './page3.wxss';
