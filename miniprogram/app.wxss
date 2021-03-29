@@ -8,11 +8,3 @@ page {
 
   font-family: 'fzyou';
 }
-
-.not-animated {
-  opacity: 0;
-}
-
-.hidden {
-  display: none;
-}

@@ -20,8 +20,9 @@ page {
   align-items: center;
 }
 
-@import './animation.wxss';
-@import './keyframes.wxss';
+@import '../../styles/common.wxss';
+@import '../../styles/keyframes.wxss';
+@import '../../styles/animation.wxss';
 
 @import './page1.wxss';
 @import './page2.wxss';
